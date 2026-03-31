@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doris Le — Video Editor & Motion Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0b0a09;
+    --bg-primary: #0f0e0c;
+    --bg-secondary: #141210;
+    --bg-card: #1a1816;
+    --bg-card-hover: #201e1a;
+    --accent: #c8a97e;
+    --accent-light: #e2cba8;
+    --accent-dim: rgba(200,169,126,0.15);
+    --accent-glow: rgba(200,169,126,0.25);
+    --cream: #f5efe6;
+    --text-primary: #f0ebe3;
+    --text-secondary: #9c9488;
+    --text-muted: #5a554d;
+    --border: #2a2622;
+    --border-light: #3a352e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  ::selection { background: var(--accent); color: var(--bg-deep); }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.5;
+  }
+  .cursor-glow {
+    position: fixed; width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,169,126,0.04) 0%, transparent 70%);
+    pointer-events: none; z-index: 9997; transform: translate(-50%, -50%); transition: all 0.4s ease;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 22px 48px; display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(24px) saturate(1.2); background: rgba(11,10,9,0.75);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700;
+    color: var(--cream); text-decoration: none; letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--accent); font-style: italic; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; font-weight: 400; text-transform: uppercase; letter-spacing: 2.5px;
+    color: var(--text-secondary); text-decoration: none; transition: color 0.3s; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+    background: var(--accent); transition: width 0.4s cubic-bezier(0.23,1,0.32,1);
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    padding: 10px 24px; background: transparent; border: 1px solid var(--accent);
+    color: var(--accent); font-size: 0.72rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 2.5px; text-decoration: none; transition: all 0.4s;
+  }
+  .nav-cta:hover { background: var(--accent); color: var(--bg-deep); }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+  .nav-toggle span { width: 24px; height: 1.5px; background: var(--cream); }
+
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 140px 64px 80px; position: relative;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
+    background: radial-gradient(ellipse at 80% 30%, rgba(200,169,126,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 5px;
+    color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 14px;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7.5vw, 7rem);
+    font-weight: 600; line-height: 1.05; letter-spacing: -1px; margin-bottom: 24px;
+    opacity: 0; animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--text-secondary); max-width: 520px; font-weight: 300;
+    line-height: 1.8; margin-bottom: 44px; opacity: 0; animation: fadeUp 0.8s 0.6s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; align-items: center; opacity: 0; animation: fadeUp 0.8s 0.8s forwards;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
+    background: var(--accent); color: var(--bg-deep); border: none;
+    font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+    transition: all 0.4s; text-decoration: none;
+  }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 12px 40px var(--accent-glow); }
+  .btn-primary svg { width: 14px; height: 14px; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
+    background: transparent; color: var(--cream); border: 1px solid var(--border-light);
+    font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
+    transition: all 0.4s; text-decoration: none;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .hero-stats {
+    display: flex; gap: 56px; margin-top: 80px; padding-top: 40px;
+    border-top: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s 1s forwards;
+  }
+  .stat h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: var(--cream); line-height: 1; }
+  .stat h3 span { color: var(--accent); }
+  .stat p { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--text-muted); margin-top: 8px; }
+
+  .marquee-section {
+    padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    overflow: hidden; background: var(--bg-deep);
+  }
+  .marquee-track { display: flex; gap: 48px; animation: marquee 25s linear infinite; width: max-content; }
+  .marquee-item {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 4px; color: var(--text-muted);
+    white-space: nowrap; display: flex; align-items: center; gap: 48px;
+  }
+  .marquee-item::after { content: '\2726'; color: var(--accent); font-size: 0.45rem; }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  section { padding: 110px 64px; }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+  .section-tag {
+    font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 4px;
+    color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; gap: 12px;
+  }
+  .section-tag::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.15; }
+  .section-link {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary);
+    text-decoration: none; transition: color 0.3s; white-space: nowrap;
+    border-bottom: 1px solid var(--border); padding-bottom: 4px;
+  }
+  .section-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .portfolio-card {
+    background: var(--bg-card); overflow: hidden; cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.23,1,0.32,1); border: 1px solid var(--border);
+  }
+  .portfolio-card:hover { transform: translateY(-6px); border-color: var(--accent-dim); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .portfolio-card.featured { grid-column: span 2; }
+  .card-media { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+  .featured .card-media { aspect-ratio: 21/9; }
+  .card-media-inner {
+    width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+    transition: transform 0.7s cubic-bezier(0.23,1,0.32,1); position: relative;
+  }
+  .portfolio-card:hover .card-media-inner { transform: scale(1.06); }
+  .card-play {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) scale(0.85);
+    width: 56px; height: 56px; background: var(--accent); display: flex;
+    align-items: center; justify-content: center; opacity: 0; transition: all 0.4s;
+  }
+  .portfolio-card:hover .card-play { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+  .card-play svg { width: 18px; height: 18px; fill: var(--bg-deep); margin-left: 2px; }
+  .card-info { padding: 28px; }
+  .card-category { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 10px; font-weight: 500; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; margin-bottom: 8px; color: var(--cream); }
+  .card-desc { font-size: 0.88rem; color: var(--text-secondary); font-weight: 300; line-height: 1.65; }
+  .card-tags { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .card-tags span { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 14px; border: 1px solid var(--border); color: var(--text-secondary); }
+
+  .grad-featured { background: linear-gradient(135deg, #1c1610, #231c14 30%, #15120e 60%, #1a1510); }
+  .grad-3d { background: linear-gradient(135deg, #140f1e, #1e1630 30%, #0e0f18 60%, #161828); }
+  .grad-music { background: linear-gradient(135deg, #1a100c, #261612 30%, #0e1018 60%, #141822); }
+  .grad-ads { background: linear-gradient(135deg, #0e160e, #162216 30%, #0c120a 60%, #121a10); }
+  .grad-motion { background: linear-gradient(135deg, #181408, #24200c 30%, #14100a 60%, #1c1608); }
+  .card-media-icon { font-size: 3.5rem; opacity: 0.4; position: absolute; }
+  .featured .card-media-icon { font-size: 5rem; }
+
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .service-card {
+    background: var(--bg-card); border: 1px solid var(--border); padding: 40px 32px;
+    transition: all 0.5s; position: relative; overflow: hidden;
+  }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transform: scaleX(0); transition: transform 0.5s;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover { background: var(--bg-card-hover); transform: translateY(-4px); border-color: var(--accent-dim); }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600;
+    color: var(--accent-dim); line-height: 1; margin-bottom: 20px; transition: color 0.4s;
+  }
+  .service-card:hover .service-num { color: var(--accent); }
+  .service-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; margin-bottom: 14px; color: var(--cream); }
+  .service-desc { font-size: 0.88rem; color: var(--text-secondary); font-weight: 300; line-height: 1.75; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+  .about-portrait {
+    aspect-ratio: 3/4; background: var(--bg-card); border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .about-portrait::before { content: ''; position: absolute; inset: 12px; border: 1px solid var(--accent-dim); pointer-events: none; }
+  .about-portrait-emoji { font-size: 5rem; margin-bottom: 16px; z-index: 1; }
+  .about-portrait-name { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--cream); z-index: 1; }
+  .about-portrait-role { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-muted); margin-top: 6px; z-index: 1; }
+  .about-content .section-title { margin-bottom: 28px; }
+  .about-content .section-title em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .about-text { font-size: 1rem; color: var(--text-secondary); font-weight: 300; line-height: 1.85; margin-bottom: 36px; }
+  .tools-list { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px; }
+  .tools-list span {
+    padding: 8px 18px; border: 1px solid var(--border); font-size: 0.72rem;
+    letter-spacing: 1.5px; color: var(--text-secondary); text-transform: uppercase; transition: all 0.3s;
+  }
+  .tools-list span:hover { border-color: var(--accent); color: var(--accent); }
+
+  .contact-section { text-align: center; padding: 130px 64px; position: relative; }
+  .contact-section::before {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(200,169,126,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5.5vw, 5rem);
+    font-weight: 600; margin-bottom: 20px;
+  }
+  .contact-title em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .contact-sub { font-size: 1.05rem; color: var(--text-secondary); font-weight: 300; max-width: 460px; margin: 0 auto 48px; line-height: 1.8; }
+  .contact-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+    background: var(--bg-card); border: 1px solid var(--border); color: var(--cream);
+    text-decoration: none; font-size: 0.85rem; transition: all 0.4s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+  footer {
+    padding: 40px 64px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; }
+  .footer-social { display: flex; gap: 24px; }
+  .footer-social a { color: var(--text-secondary); text-decoration: none; font-size: 0.78rem; letter-spacing: 1px; transition: color 0.3s; }
+  .footer-social a:hover { color: var(--accent); }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent); margin: 0 64px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.9s cubic-bezier(0.23,1,0.32,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .nav-toggle { display: flex; }
+    .hero { padding: 100px 24px 48px; }
+    section { padding: 72px 24px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-card.featured { grid-column: span 1; }
+    .featured .card-media { aspect-ratio: 16/9; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-stats { flex-wrap: wrap; gap: 28px; }
+    .contact-section { padding: 80px 24px; }
+    footer { padding: 24px; flex-direction: column; gap: 16px; text-align: center; }
+    .divider { margin: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Doris<span> Le</span></a>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#services">Dich Vu</a></li>
+    <li><a href="#about">Gioi Thieu</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Lien he</a>
+  <button class="nav-toggle"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Video Editor &amp; Motion Designer</div>
+  <h1>Bien y tuong<br>thanh <em>visual</em><br>dang cap</h1>
+  <p class="hero-sub">Chuyen dung video hoat hinh 3D, tool nhac va quang cao san pham — mang cau chuyen thuong hieu den gan hon voi khan gia.</p>
+  <div class="hero-actions">
+    <a href="#portfolio" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Xem Showreel
+    </a>
+    <a href="#contact" class="btn-ghost">Nhan bao gia</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><h3>50<span>+</span></h3><p>Du an hoan thanh</p></div>
+    <div class="stat"><h3>3<span>+</span></h3><p>Nam kinh nghiem</p></div>
+    <div class="stat"><h3>30<span>+</span></h3><p>Khach hang</p></div>
+  </div>
+</section>
+
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">3D Animation</span>
+    <span class="marquee-item">Motion Graphics</span>
+    <span class="marquee-item">Product Ads</span>
+    <span class="marquee-item">Music Visualization</span>
+    <span class="marquee-item">Visual Effects</span>
+    <span class="marquee-item">Color Grading</span>
+    <span class="marquee-item">Sound Design</span>
+    <span class="marquee-item">Brand Film</span>
+    <span class="marquee-item">3D Animation</span>
+    <span class="marquee-item">Motion Graphics</span>
+    <span class="marquee-item">Product Ads</span>
+    <span class="marquee-item">Music Visualization</span>
+    <span class="marquee-item">Visual Effects</span>
+    <span class="marquee-item">Color Grading</span>
+    <span class="marquee-item">Sound Design</span>
+    <span class="marquee-item">Brand Film</span>
+  </div>
+</div>
+
+<section id="portfolio">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">Selected Work</div>
+      <h2 class="section-title">Du an noi bat</h2>
+    </div>
+    <a href="#" class="section-link">Xem tat ca &rarr;</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card featured reveal">
+      <div class="card-media"><div class="card-media-inner grad-featured">
+        <span class="card-media-icon">&#127916;</span>
+        <div class="card-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div></div>
+      <div class="card-info">
+        <div class="card-category">Showreel 2025</div>
+        <div class="card-title">Tong hop cac du an tieu bieu</div>
+        <div class="card-desc">Compilation cac project 3D animation, quang cao san pham va music video noi bat nhat.</div>
+        <div class="card-tags"><span>After Effects</span><span>Cinema 4D</span><span>DaVinci</span></div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="card-media"><div class="card-media-inner grad-3d">
+        <span class="card-media-icon">&#129482;</span>
+        <div class="card-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div></div>
+      <div class="card-info">
+        <div class="card-category">3D Animation</div>
+        <div class="card-title">Cosmic Dream — Phim ngan 3D</div>
+        <div class="card-desc">Phim hoat hinh 3D voi hieu ung anh sang volumetric va character animation muot ma.</div>
+        <div class="card-tags"><span>Blender</span><span>Cinema 4D</span></div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="card-media"><div class="card-media-inner grad-music">
+        <span class="card-media-icon">&#127925;</span>
+        <div class="card-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div></div>
+      <div class="card-info">
+        <div class="card-category">Tool Nhac</div>
+        <div class="card-title">Neon Pulse — Music Visualizer</div>
+        <div class="card-desc">Video nhac voi audio-reactive visuals, typography kinetic va particle effects.</div>
+        <div class="card-tags"><span>After Effects</span><span>Trapcode</span></div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="card-media"><div class="card-media-inner grad-ads">
+        <span class="card-media-icon">&#128241;</span>
+        <div class="card-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div></div>
+      <div class="card-info">
+        <div class="card-category">Quang Cao San Pham</div>
+        <div class="card-title">LuxSkin — TVC My Pham</div>
+        <div class="card-desc">Video quang cao skincare cao cap voi hieu ung liquid 3D va color grading am.</div>
+        <div class="card-tags"><span>Premiere Pro</span><span>Cinema 4D</span></div>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="card-media"><div class="card-media-inner grad-motion">
+        <span class="card-media-icon">&#10024;</span>
+        <div class="card-play"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+      </div></div>
+      <div class="card-info">
+        <div class="card-category">Motion Graphics</div>
+        <div class="card-title">FinFlow — Explainer Video</div>
+        <div class="card-desc">Video giai thich ung dung fintech voi motion graphics clean va hien dai.</div>
+        <div class="card-tags"><span>After Effects</span><span>Illustrator</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="services">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">Dich vu</h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3 class="service-title">Video Hoat Hinh 3D</h3>
+      <p class="service-desc">Dung video 3D animation chuyen nghiep — tu modeling, texturing, lighting den render va compositing.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <h3 class="service-title">Tool Nhac &amp; MV</h3>
+      <p class="service-desc">Video nhac, lyric video, audio visualizer voi hieu ung reactive theo nhac an tuong.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <h3 class="service-title">Video Quang Cao</h3>
+      <p class="service-desc">TVC, video review san pham, content quang cao social media — toi uu chuyen doi.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">04</div>
+      <h3 class="service-title">Motion Graphics</h3>
+      <p class="service-desc">Explainer video, infographic animation, logo reveal va cac hieu ung chuyen dong bat mat.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">05</div>
+      <h3 class="service-title">Color Grading</h3>
+      <p class="service-desc">Chinh mau chuyen nghiep voi DaVinci Resolve, tao tone mau phu hop thuong hieu.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">06</div>
+      <h3 class="service-title">Sound Design</h3>
+      <p class="service-desc">Thiet ke am thanh, mix audio, chon nhac nen — hoan thien trai nghiem cho video.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-portrait reveal">
+      <div class="about-portrait-emoji">&#128105;&#8205;&#128187;</div>
+      <div class="about-portrait-name">Doris Le</div>
+      <div class="about-portrait-role">Video Editor</div>
+    </div>
+    <div class="about-content reveal">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">Xin chao,<br>minh la <em>Doris</em></h2>
+      <p class="about-text">
+        Minh la video editor va motion designer voi hon 3 nam kinh nghiem chuyen dung video hoat hinh 3D, tool nhac va video quang cao san pham.<br><br>
+        Moi video la mot cau chuyen — nhiem vu cua minh la ke cau chuyen do theo cach sang tao, an tuong va truyen tai dung thong diep nhat.<br><br>
+        Luon san sang nhan du an moi. Hay lien he neu ban co y tuong thu vi!
+      </p>
+      <div class="tools-list">
+        <span>After Effects</span>
+        <span>Premiere Pro</span>
+        <span>Cinema 4D</span>
+        <span>Blender</span>
+        <span>DaVinci Resolve</span>
+        <span>Photoshop</span>
+        <span>Illustrator</span>
+      </div>
+      <a href="#contact" class="btn-primary">Noi chuyen voi minh &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="section-tag" style="justify-content:center;">Get In Touch</div>
+  <h2 class="contact-title reveal">Co du an?<br>Hay <em>lien he</em> minh</h2>
+  <p class="contact-sub reveal">San sang thao luan ve du an moi, y tuong sang tao hoac co hoi hop tac.</p>
+  <div class="contact-links reveal">
+    <a href="mailto:doris.le@email.com" class="contact-link">&#9993; doris.le@email.com</a>
+    <a href="#" class="contact-link">&#128241; Zalo</a>
+    <a href="#" class="contact-link">&#128172; Facebook</a>
+    <a href="#" class="contact-link">&#127916; YouTube</a>
+    <a href="#" class="contact-link">&#128247; Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">&copy; 2025 Doris Le — Crafted with care</span>
+  <div class="footer-social">
+    <a href="#">YouTube</a>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Behance</a>
+  </div>
+</footer>
+
+<script>
+  var glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', function(e) {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry, i) {
+      if (entry.isIntersecting) {
+        setTimeout(function() { entry.target.classList.add('visible'); }, i * 120);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
