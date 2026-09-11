@@ -1,0 +1,69 @@
+<!--meta
+{"path": "/churches/", "nav": "churches", "priority": 0.8, "changefreq": "monthly",
+ "title": "Kingdomland Kids for Churches, Children's Ministries & Christian Schools",
+ "description": "Bring Kingdomland Kids to your congregation: partner rates and promo codes for your families, ready-made children's ministry videos with discussion prompts, and a launch kit. Email hello@kingdomlandkids.com to start.",
+ "crumbs": [["Home", "/"], ["For Churches", "/churches/"]]}
+-->
+<section class="page-hero">
+  <div class="container">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">For Churches</li></ol>
+    <span class="eyebrow">Partnerships</span>
+    <h1>Kingdomland Kids for churches, ministries &amp; schools</h1>
+    <p class="lede">Sunday is one hour. Kingdomland is the other six days. Give every family in your congregation a Bible-first alternative to Saturday-morning cartoons — with a partner rate and a code that's yours.</p>
+    <div class="cluster"><a class="btn btn--gold" href="#partner-form">Start a partnership</a><a class="btn btn--ghost" href="/shows/">See the shows</a></div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="grid grid--3">
+      <article class="card reveal">
+        <div class="prop__icon">{{icon:ico-church}}</div>
+        <h3>A rate for your families</h3>
+        <p>Your congregation gets a promo code with a partner price on the monthly plan, plus the annual plan's free storybook. You share one link; we handle the rest.</p>
+      </article>
+      <article class="card reveal">
+        <div class="prop__icon">{{icon:ico-bible}}</div>
+        <h3>Ready-made ministry content</h3>
+        <p>Use Marvelous Light, Bible Adventures and Fruits of Virtue episodes in children's church, with discussion prompts that match what you're already teaching.</p>
+      </article>
+      <article class="card reveal">
+        <div class="prop__icon">{{icon:ico-family}}</div>
+        <h3>A bridge between Sundays</h3>
+        <p>Memory verse tracks and quiz games let families keep this week's lesson going at home — so kids walk in Sunday already humming the verse.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section section--tight on-navy">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">How it works</span><h2>Three steps, one week</h2></div>
+    <div class="features">
+      <article class="feature"><div class="feature__num">1</div><h3>Tell us about your church</h3><p>Name, size, and who leads children's ministry. Two minutes with the form below or an email to {{site.email}}.</p></article>
+      <article class="feature"><div class="feature__num">2</div><h3>Get your code and launch kit</h3><p>A promo code for your families, a one-page flyer, a slide for Sunday announcements and a short video to play from the stage.</p></article>
+      <article class="feature"><div class="feature__num">3</div><h3>Families sign up in a minute</h3><p>They visit go.kingdomlandkids.com, enter your code and start watching that night. You get a monthly note on how many families joined.</p></article>
+    </div>
+  </div>
+</section>
+<section class="section" id="partner-form">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div class="stack">
+        <span class="eyebrow">Start a partnership</span>
+        <h2>Tell us about your congregation</h2>
+        <p class="lede">A real person reads every message and replies within two business days. Prefer email? Write to <a class="link" href="mailto:{{site.email}}">{{site.email}}</a>.</p>
+        <blockquote class="scripture" style="font-size:var(--step-2)">“Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these.”<cite>Matthew 19:14</cite></blockquote>
+      </div>
+      <form class="form card" data-contact="{{site.email}}" novalidate>
+        <input type="hidden" name="topic" value="Church partnership">
+        <div class="row">
+          <label for="c-name">Your name<input id="c-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label for="c-org">Church, ministry or school<input id="c-org" name="org" type="text" autocomplete="organization" required></label>
+        <label for="c-message">Tell us a little about your families<textarea id="c-message" name="message" placeholder="Roughly how many families, ages of the kids, and what you'd love Kingdomland to do for them."></textarea></label>
+        <button class="btn btn--gold" type="submit">Send — opens your email app</button>
+        <p class="note" data-sent hidden>Your email app should have opened with everything filled in. If it didn't, write to {{site.email}}.</p>
+      </form>
+    </div>
+  </div>
+</section>

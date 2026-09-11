@@ -1,0 +1,8 @@
+<!--
+  Analytics / conversion tracking — add real IDs before launch (kept out of the build on purpose).
+  1) GA4:  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script> + gtag('config','G-XXXXXXX')
+  2) Meta Pixel: fbq('init','PIXEL_ID'); fbq('track','PageView');
+     The app (go.kingdomlandkids.com) must ALSO fire: Lead (free signup), StartTrial / Subscribe (paid), Purchase with value+currency.
+     As of Sep 2026 the pixel only sends PageView + AddToCart — Meta cannot optimise for subscribers until Subscribe/Purchase fire.
+  3) Google Search Console: verify the domain (DNS TXT) and submit /sitemap.xml
+-->

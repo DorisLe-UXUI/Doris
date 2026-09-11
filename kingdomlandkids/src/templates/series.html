@@ -1,0 +1,55 @@
+<section class="page-hero">
+  <div class="container">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/shows/">Shows</a></li><li aria-current="page">{{series.name}}</li></ol>
+    <span class="eyebrow">{{series.category}} · Ages {{series.ages}} · {{series.count}}</span>
+    <h1>{{series.name}}</h1>
+    <p class="lede">{{series.tagline}}</p>
+    <div class="cluster"><a class="btn btn--gold" href="{{url.signup}}" rel="noopener">{{icon:ico-play}}Watch a free preview</a><a class="btn btn--ghost" href="/shows/">All shows</a></div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="series-hero">
+      <div class="show__art {{series.art}}" aria-hidden="true">{{icon:{{series.icon}}}}</div>
+      <div class="stack">
+        <span class="eyebrow">{{series.kicker}}</span>
+        <h2>About the series</h2>
+        <p class="lede">{{series.intro}}</p>
+        <div class="cluster"><span class="pill">Ad-free</span><span class="pill">Ages {{series.ages}}</span><span class="pill">{{series.count}}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--tight" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="grid grid--2" style="align-items:start">
+      <div class="stack">
+        <span class="eyebrow">Why families love it</span>
+        <h2>Made to be watched together</h2>
+        <ul class="plan__list" style="font-size:1rem">
+          <li>{{series.why.0}}</li>
+          <li>{{series.why.1}}</li>
+          <li>{{series.why.2}}</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">In the series</span>
+        <h2>What's inside</h2>
+        {{block:episodes}}
+        <p class="note">{{series.episodes_note}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Keep watching</span><h2>More from Kingdomland</h2></div>
+    <div class="shows">{{block:related}}</div>
+  </div>
+</section>
+<section class="cta">
+  <div class="container">
+    <div><h2>Watch {{series.name}} free.</h2><p>Every video has a 60-second preview on the Free plan — no card. Full episodes from $5.83/month on Annual.</p></div>
+    <div class="cta__actions"><a class="btn btn--gold btn--lg" href="{{url.signup}}" rel="noopener">Try free — no card</a><a class="btn btn--ghost btn--lg" href="/pricing/">See plans</a></div>
+  </div>
+</section>

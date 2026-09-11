@@ -1,0 +1,40 @@
+<!--meta
+{"path": "/contact/", "nav": "contact", "priority": 0.5, "changefreq": "yearly",
+ "title": "Contact Kingdomland Kids — Support, Churches & Press",
+ "description": "Contact Kingdomland Kids: support for families, church and ministry partnerships, press and creator enquiries. Email hello@kingdomlandkids.com — a real person replies.",
+ "schema": ["contact"], "crumbs": [["Home", "/"], ["Contact", "/contact/"]]}
+-->
+<section class="page-hero">
+  <div class="container">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>
+    <span class="eyebrow">Say hello</span>
+    <h1>We read every message</h1>
+    <p class="lede">Support, partnerships, press or an idea for a show — write to <a class="link" href="mailto:{{site.email}}">{{site.email}}</a> or use the form. We reply within two business days.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="split" style="align-items:start">
+      <div class="stack">
+        <div class="card"><div class="prop__icon">{{icon:ico-mail}}</div><h3>Families &amp; support</h3><p>Account questions, billing, an episode you want to talk about. <a class="link" href="mailto:{{site.email}}">{{site.email}}</a></p></div>
+        <div class="card"><div class="prop__icon">{{icon:ico-church}}</div><h3>Churches, ministries &amp; schools</h3><p>Partner rates, promo codes and launch kits. <a class="link" href="/churches/">See church partnerships</a></p></div>
+        <div class="card"><div class="prop__icon">{{icon:ico-note}}</div><h3>Press &amp; creators</h3><p>Interviews, screeners, or you make something our families would love. Same inbox, subject line "Press" or "Creator".</p></div>
+        <div class="social" aria-label="Social media">
+          <a href="{{url.youtube}}" rel="noopener" aria-label="YouTube" style="border-color:var(--line-strong);color:var(--navy)">{{icon:ico-youtube}}</a>
+          <a href="{{url.instagram}}" rel="noopener" aria-label="Instagram" style="border-color:var(--line-strong);color:var(--navy)">{{icon:ico-instagram}}</a>
+          <a href="{{url.facebook}}" rel="noopener" aria-label="Facebook" style="border-color:var(--line-strong);color:var(--navy)">{{icon:ico-facebook}}</a>
+        </div>
+      </div>
+      <form class="form card" data-contact="{{site.email}}" novalidate>
+        <div class="row">
+          <label for="k-name">Your name<input id="k-name" name="name" type="text" autocomplete="name" required></label>
+          <label for="k-email">Email<input id="k-email" name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <label for="k-topic">What's this about?<select id="k-topic" name="topic"><option>Support</option><option>Billing</option><option>Church partnership</option><option>Press</option><option>Creator</option><option>Something else</option></select></label>
+        <label for="k-message">Message<textarea id="k-message" name="message" required></textarea></label>
+        <button class="btn btn--gold" type="submit">Send — opens your email app</button>
+        <p class="note" data-sent hidden>Your email app should have opened with everything filled in. If it didn't, write to {{site.email}}.</p>
+      </form>
+    </div>
+  </div>
+</section>
