@@ -12,7 +12,8 @@ kingdomlandkids/
 │   └── templates/series.html# every show page is generated from site.json → /shows/<slug>/
 ├── static/                  # copied as-is into dist/: css, js, vendored three.js, icons, OG image
 ├── tools/                   # og.html + icon.html + render-assets.mjs (regenerates PNGs with Playwright)
-├── dist/                    # BUILD OUTPUT — deploy this folder
+├── dist/                    # BUILD OUTPUT — deploy this folder (root-absolute URLs for kingdomlandkids.com)
+├── preview/                 # same site with relative links — works from any sub-folder, e.g. a Netlify deploy preview
 └── KDL_SEO_Plan.xlsx        # keyword map, page meta, technical checklist, schema map, content calendar
 ```
 
@@ -22,6 +23,8 @@ kingdomlandkids/
 python3 build.py                      # → dist/ (absolute clean URLs, sitemap.xml, robots.txt)
 npx serve dist                        # or: python3 -m http.server -d dist 8080
 ```
+
+`preview/` is the same build with relative links (`python3 build.py --preview preview`), so it renders correctly when the repo is deployed as a whole — e.g. `<deploy-preview>/kingdomlandkids/preview/`.
 
 `dist/` is plain HTML/CSS/JS. Deploy to Netlify, Vercel, Cloudflare Pages or GitHub Pages. Every page lives at `folder/index.html`, so clean URLs (`/pricing/`) work on every static host with no config. Point `404.html` as the custom not-found page (Netlify/GitHub Pages pick it up automatically).
 
