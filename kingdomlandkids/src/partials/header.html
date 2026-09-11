@@ -1,0 +1,18 @@
+<header class="header {{page.header_class}}" data-header>
+  <div class="container">
+    <a class="brand" href="/" aria-label="{{site.name}} — home">
+      <span class="wordmark" aria-hidden="true"><span style="--b:1;--r:-6">K</span><span style="--b:-1;--r:4">i</span><span style="--b:1;--r:-3">n</span><span style="--b:-2;--r:5">g</span><span style="--b:1;--r:-4">d</span><span style="--b:-1;--r:3">o</span><span style="--b:2;--r:-5">m</span><span style="--b:-1;--r:4">l</span><span style="--b:1;--r:-3">a</span><span style="--b:-2;--r:5">n</span><span style="--b:1;--r:-4">d</span><small>kids</small></span>
+      <span class="sr-only">{{site.name}}</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-nav-toggle><span></span></button>
+    <nav class="nav" id="site-nav" aria-label="Primary">
+      <ul class="nav__links">
+        {{block:nav_links}}
+      </ul>
+      <div class="nav__cta">
+        <a class="btn btn--ghost btn--sm" href="{{url.login}}" rel="noopener">Log in</a>
+        <a class="btn btn--gold btn--sm" href="{{url.signup}}" rel="noopener">Try free</a>
+      </div>
+    </nav>
+  </div>
+</header>

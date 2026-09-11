@@ -1,0 +1,64 @@
+<!--meta
+{"path": "/pricing/", "nav": "pricing", "priority": 0.9, "changefreq": "monthly",
+ "title": "Pricing — Free, Monthly $9.99 or Annual $69.99 | Kingdomland Kids",
+ "description": "Kingdomland Kids pricing: try free with no card (60-second previews), Monthly $9.99 with 20% off your first month, or Annual $69.99 ($5.83/mo, save 42%) with a free Marvelous Light storybook shipped. Cancel anytime.",
+ "schema": ["app"], "crumbs": [["Home", "/"], ["Pricing", "/pricing/"]]}
+-->
+<section class="page-hero">
+  <div class="container">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Pricing</li></ol>
+    <span class="eyebrow">Simple pricing</span>
+    <h1>Pricing that's fair to families</h1>
+    <p class="lede">Start free with no card. Go monthly when the kids are hooked. Or lock in a year for {{pricing.annual.per_month|money}} a month and we'll ship a Marvelous Light storybook to your door.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="plans">{{block:plans}}</div>
+    {{block:math}}
+    <p class="note mt-2 center">All prices in USD. Storybook ships to U.S. addresses. Taxes may apply in your state.</p>
+  </div>
+</section>
+<section class="section section--tight" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Compare</span><h2>What's in each plan</h2></div>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th scope="col">Feature</th><th scope="col">Free</th><th scope="col">Monthly</th><th scope="col">Annual</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">60-second previews of every video</th><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Full episodes, every series</th><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Family quiz games</th><td>—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Worship &amp; memory verse playlists</th><td>Samplers</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">New episodes as they release</th><td>Previews</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Marvelous Light Adventures storybook (shipped)</th><td>—</td><td>—</td><td class="yes">✓ Free</td></tr>
+          <tr><th scope="row">Cancel anytime, one click</th><td>Nothing to cancel</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Price</th><td class="tabular">$0</td><td class="tabular">{{pricing.monthly.intro|money}} first month, then {{pricing.monthly.price|money}}/mo</td><td class="tabular">{{pricing.annual.price|money}}/yr ({{pricing.annual.per_month|money}}/mo)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="card" style="background:var(--navy);color:var(--cream);border:0">
+        <span class="eyebrow" style="color:var(--gold)">Churches &amp; ministries</span>
+        <h3 style="color:var(--cream)">Partner rates for your whole congregation</h3>
+        <p style="color:var(--on-navy-muted)">Children's ministries, churches and Christian schools can get a promo code and a launch kit for their families. One email is all it takes.</p>
+        <a class="btn btn--gold" href="/churches/">See church partnerships</a>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Pricing questions</span>
+        <h2>The fine print, in plain English</h2>
+        <div class="faq">{{block:faq:home}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="container">
+    <div><h2>Try it free tonight.</h2><p>No card, no timer. If the kids ask for it tomorrow, you'll know it's worth {{pricing.annual.per_month|money}} a month.</p></div>
+    <div class="cta__actions"><a class="btn btn--gold btn--lg" href="{{url.signup}}" rel="noopener">Try free — no card</a></div>
+  </div>
+</section>

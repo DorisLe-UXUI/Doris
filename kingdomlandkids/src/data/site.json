@@ -1,0 +1,153 @@
+{
+  "name": "Kingdomland Kids",
+  "short": "Kingdomland",
+  "domain": "https://kingdomlandkids.com",
+  "tagline": "Biblical adventures for young hearts",
+  "description": "Kingdomland Kids is a Christian streaming app for kids ages 2–10: Bible stories, worship songs, memory verse tracks, life-skills shows and family quiz games. Ad-free, made for families. Try it free — no card needed.",
+  "email": "hello@kingdomlandkids.com",
+  "urls": {
+    "signup": "https://go.kingdomlandkids.com/",
+    "login": "https://go.kingdomlandkids.com/",
+    "youtube": "https://www.youtube.com/@Kingdomlandkids",
+    "instagram": "https://www.instagram.com/kingdomlandkids/",
+    "facebook": "https://www.facebook.com/kingdomlandkids"
+  },
+  "nav": [
+    {"label": "Shows", "href": "/shows/", "key": "shows"},
+    {"label": "Pricing", "href": "/pricing/", "key": "pricing"},
+    {"label": "For Churches", "href": "/churches/", "key": "churches"},
+    {"label": "About", "href": "/about/", "key": "about"},
+    {"label": "Blog", "href": "/blog/", "key": "blog"}
+  ],
+  "marquee": ["Bible stories", "Worship songs", "Memory verse tracks", "Family quiz games", "Life skills", "No ads, ever", "Made for our families", "Try free · no card"],
+  "pricing": {
+    "free": {
+      "name": "Free", "sub": "See if your kids love it. No card, no timer.", "cta": "Try free — no card",
+      "features": ["60-second previews of every video", "Explore the full app, every section", "Worship & memory verse samplers", "No credit card, cancel nothing"]
+    },
+    "monthly": {
+      "name": "Monthly", "price": 9.99, "intro": 7.99, "sub": "20% off your first month, then $9.99/mo. Cancel anytime.", "cta": "Start for $7.99",
+      "features": ["Every show, every episode, ad-free", "Family quiz games & memory verse tracks", "New episodes added regularly", "Cancel anytime in one click"]
+    },
+    "annual": {
+      "name": "Annual", "price": 69.99, "per_month": 5.83, "book_value": 12.99, "tag": "Best value · Save 42%", "sub": "$69.99 billed once a year. That's 42% less than monthly.", "cta": "Lock in annual + free book",
+      "features": ["Everything in Monthly", "FREE Marvelous Light Adventures storybook ($12.99), shipped to your door", "One payment, a whole year of Bible adventures", "Cancel anytime in one click"]
+    }
+  },
+  "series": [
+    {
+      "slug": "marvelous-light", "name": "Marvelous Light", "kicker": "Lucy & Leo’s Bible adventures", "featured": true, "badge": "Original series",
+      "ages": "4–8", "count": "24 episodes", "episode_count": 24, "category": "Bible stories", "filter": "bible", "art": "art--ml", "icon": "ico-lantern",
+      "genres": ["Children's", "Animation", "Faith & Family"],
+      "tagline": "Lucy and Leo discover the fruits of the Spirit in a magical world of talking animals and hidden biblical truths.",
+      "seo_description": "Watch Marvelous Light on Kingdomland Kids: Lucy and Leo discover the fruits of the Spirit in a magical world of talking animals. 24 animated Bible-story episodes for ages 4–8 — Moses, David, Daniel, Jonah, Noah, Creation and more. Try it free.",
+      "intro": "Two kids, a lantern and a world where every animal has a story to tell. Across two seasons, Lucy and Leo step into the biggest stories of the Bible and come home with something to practice at the dinner table: gentleness, courage, faithfulness, joy.",
+      "why": ["Each episode follows one Bible story from beginning to end, so kids meet the real people of Scripture, not just the moral.", "Episodes are paced for short attention spans and end with a takeaway a 5-year-old can repeat back to you.", "Voiced by an African American cast across the whole series, so our kids see and hear themselves in God’s story."],
+      "ep_label": "Story", "episodes": ["Moses", "David", "Daniel", "Jonah", "Noah", "Meet Jesus", "Easter", "Christmas", "The Three Hebrew Boys", "Creation", "Adam & Eve", "Zacchaeus", "Paul", "A Rotten Day"],
+      "episodes_note": "24 episodes across Season 1 and Season 2; longer stories are told in two parts. New: Grandpa Moses, the Marvelous Light Grandpa series."
+    },
+    {
+      "slug": "bible-adventures", "name": "Bible Adventures", "kicker": "Big stories, explained for curious kids", "featured": true,
+      "ages": "5–10", "count": "15 episodes", "episode_count": 15, "category": "Bible stories", "filter": "bible", "art": "art--ba", "icon": "ico-scroll",
+      "genres": ["Children's", "Educational", "Faith & Family"],
+      "tagline": "From the Exodus to Psalm 23 — the sweep of Scripture told at kid speed, with the questions kids actually ask.",
+      "seo_description": "Bible Adventures on Kingdomland Kids explains the big stories of Scripture for kids ages 5–10 — the Exodus, Psalm 23 and more. 15 episodes, ad-free. Try it free, no card needed.",
+      "intro": "Bible Adventures zooms out. Where did Moses go after the sea? Why does a shepherd matter? Each episode takes one big idea from Scripture and walks kids through it with maps, characters and plain-spoken answers.",
+      "why": ["Built for the 'but why?' age: every episode answers the questions kids ask when a story ends.", "A great bridge from cartoon Bible stories to reading the Bible itself.", "Perfect for Saturday family worship or Sunday-school prep — parents learn something too."],
+      "ep_label": "Episode", "episodes": ["Exodus Explained", "Psalm 23 — The Lord Is My Shepherd"],
+      "episodes_note": "15 episodes in the library, with more in production. Titles above are a sample."
+    },
+    {
+      "slug": "black-history-beats", "name": "Black History Beats", "kicker": "Turn history into a song", "featured": true, "new": true,
+      "ages": "5–10", "count": "3 episodes", "episode_count": 3, "category": "Music & history", "filter": "music", "art": "art--bhb", "icon": "ico-note",
+      "genres": ["Children's", "Music", "History", "Faith & Family"],
+      "tagline": "Jackie Robinson, Bessie Coleman, Dr. King — heroes of faith and courage, turned into songs kids can’t stop singing.",
+      "seo_description": "Black History Beats on Kingdomland Kids turns Black history into songs for kids — Jackie Robinson, Bessie Coleman and Dr. Martin Luther King Jr. Celebratory, faith-filled music videos for ages 5–10.",
+      "intro": "History sticks when it has a beat. Black History Beats takes the courage of Jackie Robinson, the daring of Bessie Coleman and the faith of Dr. King and sets it to music your kids will hum in the car.",
+      "why": ["Celebratory, dignified storytelling — heroes as people of faith, not just facts for February.", "Music is the fastest way to memory: kids learn names, dates and character in one chorus.", "A natural companion for Juneteenth, Black History Month and every day in between."],
+      "ep_label": "Music video", "episodes": ["Jackie Robinson", "Bessie Coleman", "Dr. Martin Luther King Jr."],
+      "episodes_note": "New heroes are added throughout the year."
+    },
+    {
+      "slug": "fruits-of-virtue", "name": "Bible Fruits of Virtue", "kicker": "One fruit of the Spirit at a time", "featured": true,
+      "ages": "4–8", "count": "5 episodes", "episode_count": 5, "category": "Character", "filter": "character", "art": "art--fv", "icon": "ico-fruit",
+      "genres": ["Children's", "Educational", "Faith & Family"],
+      "tagline": "Gentleness, goodness, faithfulness, love — Galatians 5 made practical for the playground and the back seat.",
+      "seo_description": "Bible Fruits of Virtue on Kingdomland Kids teaches the fruits of the Spirit to kids ages 4–8 — gentleness, goodness, faithfulness and love — one episode at a time. Ad-free Christian kids videos.",
+      "intro": "Galatians 5 lists the fruit of the Spirit. This series takes them one at a time and asks a simple question: what does this look like when you're six? Each episode ends with one thing to try before bedtime.",
+      "why": ["Short, focused episodes make great 'one virtue a week' family devotionals.", "Pairs naturally with Marvelous Light, where Lucy and Leo live the same fruits out in story form.", "Discussion prompts in every episode help parents keep the conversation going."],
+      "ep_label": "Episode", "episodes": ["Introduction: What is the fruit of the Spirit?", "Gentleness", "Goodness", "Faithfulness", "Love"],
+      "episodes_note": "More fruits are on the way."
+    },
+    {
+      "slug": "little-agent", "name": "Little Agent", "kicker": "Everyday missions, real-life skills", "featured": true,
+      "ages": "4–8", "count": "8 episodes", "episode_count": 8, "category": "Life skills", "filter": "life", "art": "art--la", "icon": "ico-magnifier",
+      "genres": ["Children's", "Educational", "Live action"],
+      "tagline": "A kid agent accepts everyday missions — tidy the room, tell the truth, share the last cookie — and levels up in life skills.",
+      "seo_description": "Little Agent on Kingdomland Kids: 8 life-skills episodes where a kid agent takes on everyday missions — honesty, responsibility, kindness. Ages 4–8, ad-free.",
+      "intro": "Every kid wants a mission. Little Agent hands them one: small, doable, real. The reward isn't a gadget — it's the confidence that comes from doing the right thing when no one is watching.",
+      "why": ["Turns chores and manners into quests kids volunteer for.", "Live-action energy for kids who've outgrown cartoons but not play.", "Values-first storytelling that lines up with what you're already teaching at home."],
+      "ep_label": "Mission", "episodes": [],
+      "episodes_note": "8 missions in the Life Skills collection."
+    },
+    {
+      "slug": "abcs-and-numbers", "name": "ABCs & Numbers", "kicker": "Early learning with a joyful heart", "featured": true,
+      "ages": "2–5", "count": "Early learning", "episode_count": null, "category": "Preschool", "filter": "preschool", "art": "art--abc", "icon": "ico-blocks",
+      "genres": ["Children's", "Educational", "Preschool"],
+      "tagline": "Letters, numbers and colors for the littlest viewers — bright, gentle and safe to press play on.",
+      "seo_description": "ABCs & Numbers on Kingdomland Kids: gentle early-learning videos for toddlers and preschoolers ages 2–5 — letters, numbers, colors and songs, ad-free and safe.",
+      "intro": "For the years when screen time has to be both safe and useful. ABCs & Numbers keeps the pace gentle, the colors warm and the songs sticky — with no ads, no autoplay surprises and no algorithm.",
+      "why": ["Toddler-safe by design: no ads, no outside links, no infinite feed.", "Songs and repetition that actually teach — perfect for car rides and quiet time.", "Grows with your child straight into Marvelous Light and Fruits of Virtue."],
+      "ep_label": "Video", "episodes": [],
+      "episodes_note": "A growing collection of letter, number and color videos."
+    },
+    {
+      "slug": "worship-and-memory-verses", "name": "Worship & Memory Verses", "kicker": "Songs and Scripture that stay", "featured": false,
+      "ages": "All ages", "count": "Playlists", "episode_count": null, "category": "Music", "filter": "music", "art": "art--wm", "icon": "ico-praise",
+      "genres": ["Children's", "Music", "Worship"],
+      "tagline": "Worship songs and memory verse tracks in ready-made playlists — for mornings, bedtimes and the drive to church.",
+      "seo_description": "Kids worship songs and Bible memory verse tracks on Kingdomland Kids. Ready-made playlists for family worship, mornings and bedtime. Ad-free Christian music for kids.",
+      "intro": "Music is how Scripture gets from the screen into the heart. Our worship songs and memory verse tracks are grouped into playlists you can press play on and walk away from — mornings, bedtimes, Saturday family worship.",
+      "why": ["Memory verse tracks put whole verses to melody so kids learn Scripture without 'memorizing'.", "Playlists for the moments you actually have: 10 minutes before school, wind-down before bed.", "Worship led by voices that sound like our church."],
+      "ep_label": "Playlist", "episodes": ["Morning worship", "Memory verse tracks", "Bedtime & wind-down", "Saturday family worship"],
+      "episodes_note": "Playlists are refreshed as new songs are released."
+    },
+    {
+      "slug": "bible-in-clay", "name": "Bible in Clay", "kicker": "Creation, told in clay", "featured": false, "new": true,
+      "ages": "3–8", "count": "New", "episode_count": null, "category": "Bible stories", "filter": "bible", "art": "art--ba", "icon": "ico-hands",
+      "genres": ["Children's", "Animation", "Faith & Family"],
+      "tagline": "Hand-shaped claymation Bible stories, starting with Creation — tactile, quiet and full of wonder.",
+      "seo_description": "Bible in Clay on Kingdomland Kids: claymation Bible stories for kids, starting with Creation. Slow, wonder-filled storytelling for ages 3–8.",
+      "intro": "Some stories deserve to be slowed down. Bible in Clay tells Creation the way a child would — with hands, texture and wonder — one day at a time.",
+      "why": ["A calmer visual language for younger or sensitive viewers.", "Beautiful for bedtime: unhurried pacing, warm palette, no jump cuts.", "Pairs with a simple Genesis 1 read-aloud for family devotionals."],
+      "ep_label": "Episode", "episodes": ["Creation"],
+      "episodes_note": "More clay stories are in production."
+    }
+  ],
+  "faq": [
+    {"home": true, "q": "What is Kingdomland Kids?", "a": ["Kingdomland Kids is a Christian streaming app for kids. It brings together animated Bible stories like <strong>Marvelous Light</strong>, worship songs and memory verse tracks, life-skills shows, Black history music videos and family quiz games — all in one ad-free place made for families."]},
+    {"home": true, "q": "What ages is it for?", "a": ["Most of our shows are made for kids 4–8. ABCs &amp; Numbers is for toddlers and preschoolers (2–5), and Bible Adventures and Black History Beats stretch up to about 10. Parents tell us the whole family ends up watching."]},
+    {"home": true, "q": "Is it really free to try?", "a": ["Yes. The Free plan needs no credit card. You get a 60-second preview of every video and the full app experience, so you can see if your kids love it before you pay a cent."]},
+    {"home": true, "q": "What devices can we watch on?", "a": ["Kingdomland Kids runs in your web browser — phone, tablet, laptop or desktop — and on the big screen with casting or screen mirroring. One subscription covers the whole household."]},
+    {"home": false, "q": "Who makes the shows, and how do you keep them biblically sound?", "a": ["Our shows are created with families, for families. Every series is grounded in Scripture and voiced by an African American cast, so our kids see and hear themselves in God's story. If you ever have a question about an episode, email us at hello@kingdomlandkids.com — a real person answers."]},
+    {"home": true, "q": "Can I cancel anytime?", "a": ["Yes. Monthly and Annual plans can be cancelled in one click from your account settings — no emails, no phone calls. You keep access until the end of the period you've paid for."]},
+    {"home": false, "q": "What is the free storybook with the Annual plan?", "a": ["Every Annual subscription includes a <strong>Marvelous Light Adventures</strong> storybook ($12.99 value), shipped to your door. It's the same Lucy &amp; Leo your kids watch, in a format you can read together at bedtime."]},
+    {"home": true, "q": "Do you offer church, school or group pricing?", "a": ["We do. Churches, children's ministries and Christian schools can get partner rates and promo codes for their families. Visit our <a href=\"/churches/\">For Churches</a> page or email hello@kingdomlandkids.com."]},
+    {"home": false, "q": "Are there ads?", "a": ["No ads, no sponsored content, no autoplay into outside videos. Kids stay inside Kingdomland."]}
+  ],
+  "testimonials": [
+    {"quote": "My kids ask to watch Kingdomland every morning, and the biblical lessons stick with them all day.", "who": "Kingdomland parent", "initial": "K"},
+    {"quote": "The episodes are perfectly paced for short attention spans. My 5-year-old is learning Scripture naturally.", "who": "Mom of a 5-year-old", "initial": "M"}
+  ],
+  "footer": [
+    {"title": "Watch", "links": [
+      {"label": "All shows", "href": "/shows/"}, {"label": "Marvelous Light", "href": "/shows/marvelous-light/"}, {"label": "Black History Beats", "href": "/shows/black-history-beats/"},
+      {"label": "Worship & memory verses", "href": "/shows/worship-and-memory-verses/"}, {"label": "Watch on YouTube", "href": "https://www.youtube.com/@Kingdomlandkids"}]},
+    {"title": "Families", "links": [
+      {"label": "Pricing", "href": "/pricing/"}, {"label": "Try free — no card", "href": "https://go.kingdomlandkids.com/"}, {"label": "Log in", "href": "https://go.kingdomlandkids.com/"},
+      {"label": "FAQ", "href": "/faq/"}, {"label": "Blog", "href": "/blog/"}]},
+    {"title": "Company", "links": [
+      {"label": "About", "href": "/about/"}, {"label": "For churches & ministries", "href": "/churches/"}, {"label": "Contact", "href": "/contact/"},
+      {"label": "Privacy", "href": "/privacy/"}, {"label": "Terms", "href": "/terms/"}]}
+  ]
+}

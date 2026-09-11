@@ -1,0 +1,13 @@
+{
+  "name": "Kingdomland Kids",
+  "short_name": "Kingdomland",
+  "description": "Biblical adventures for young hearts — ad-free Christian streaming for kids.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0F2143",
+  "theme_color": "#0F2143",
+  "icons": [
+    {"src": "/assets/img/logo-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/assets/img/logo-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

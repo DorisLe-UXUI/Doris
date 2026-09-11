@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="/" aria-label="{{site.name}} — home"><span class="wordmark" aria-hidden="true"><span style="--b:1;--r:-6">K</span><span style="--b:-1;--r:4">i</span><span style="--b:1;--r:-3">n</span><span style="--b:-2;--r:5">g</span><span style="--b:1;--r:-4">d</span><span style="--b:-1;--r:3">o</span><span style="--b:2;--r:-5">m</span><span style="--b:-1;--r:4">l</span><span style="--b:1;--r:-3">a</span><span style="--b:-2;--r:5">n</span><span style="--b:1;--r:-4">d</span><small>kids</small></span></a>
+        <p>{{site.tagline}}. Bible stories, worship songs, memory verses and family quiz games — ad-free, in one app made for our families.</p>
+        <form class="newsletter" action="{{url.signup}}" method="get" data-newsletter>
+          <label class="sr-only" for="footer-email">Email address</label>
+          <input id="footer-email" type="email" name="email" placeholder="Your email for new episodes" autocomplete="email" required>
+          <button class="btn btn--gold btn--sm" type="submit">Join</button>
+        </form>
+        <p class="note mt-1">New-episode notes and family devotional ideas. No spam.</p>
+      </div>
+      {{block:footer_links}}
+    </div>
+    <div class="footer__bottom">
+      <p>© {{block:year}} {{site.name}} · <a href="mailto:{{site.email}}">{{site.email}}</a></p>
+      <div class="social" aria-label="Social media">
+        <a href="{{url.youtube}}" rel="noopener" aria-label="Kingdomland Kids on YouTube">{{icon:ico-youtube}}</a>
+        <a href="{{url.instagram}}" rel="noopener" aria-label="Kingdomland Kids on Instagram">{{icon:ico-instagram}}</a>
+        <a href="{{url.facebook}}" rel="noopener" aria-label="Kingdomland Kids on Facebook">{{icon:ico-facebook}}</a>
+      </div>
+    </div>
+  </div>
+</footer>

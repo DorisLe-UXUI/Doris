@@ -1,0 +1,52 @@
+<!--meta
+{"path": "/shows/", "nav": "shows", "priority": 0.9, "changefreq": "weekly",
+ "title": "Christian Shows for Kids — Every Series on Kingdomland Kids",
+ "description": "Browse every Christian show for kids on Kingdomland Kids: Marvelous Light Bible stories, Black History Beats, Bible Fruits of Virtue, Little Agent life skills, ABCs & Numbers, worship and memory verse playlists. Ad-free, ages 2–10.",
+ "crumbs": [["Home", "/"], ["Shows", "/shows/"]]}
+-->
+<section class="page-hero">
+  <div class="container">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Shows</li></ol>
+    <span class="eyebrow">The library</span>
+    <h1>Every show on Kingdomland Kids</h1>
+    <p class="lede">Eight series and growing — animated Bible stories, music videos, character and life-skills shows, and early learning for the littlest viewers. Every one ad-free and safe to press play on.</p>
+    <div class="cluster"><a class="btn btn--gold" href="{{url.signup}}" rel="noopener">Preview any show free</a><a class="btn btn--ghost" href="/pricing/">See plans</a></div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="filters" data-filters role="group" aria-label="Filter shows by type">
+      <button type="button" data-filter="all" aria-pressed="true">All shows</button>
+      <button type="button" data-filter="bible" aria-pressed="false">Bible stories</button>
+      <button type="button" data-filter="music" aria-pressed="false">Music &amp; history</button>
+      <button type="button" data-filter="character" aria-pressed="false">Character</button>
+      <button type="button" data-filter="life" aria-pressed="false">Life skills</button>
+      <button type="button" data-filter="preschool" aria-pressed="false">Preschool</button>
+    </div>
+    <div class="shows">
+      {{block:show_cards:all}}
+    </div>
+  </div>
+</section>
+<section class="section section--tight" style="background:var(--cream-2)">
+  <div class="container">
+    <div class="split">
+      <div class="stack">
+        <span class="eyebrow">New this season</span>
+        <h2>Grandpa Moses, Bible in Clay and more heroes for Black History Beats</h2>
+        <p class="lede">The library grows all year. Annual and Monthly families get every new episode the day it lands — and Free families get the first 60 seconds of each one.</p>
+      </div>
+      <div class="card">
+        <h3>Watch on YouTube too</h3>
+        <p>More than 159,000 families already follow Kingdomland Kids on YouTube. The app is where the full library lives — ad-free, with quiz games and memory verse tracks — but you can sample the vibe there first.</p>
+        <a class="link" href="{{url.youtube}}" rel="noopener">Kingdomland Kids on YouTube {{icon:ico-arrow}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta">
+  <div class="container">
+    <div><h2>Every show, one subscription.</h2><p>Preview any episode free — no card. Then pick monthly or annual and get the whole kingdom.</p></div>
+    <div class="cta__actions"><a class="btn btn--gold btn--lg" href="{{url.signup}}" rel="noopener">Try free — no card</a></div>
+  </div>
+</section>
