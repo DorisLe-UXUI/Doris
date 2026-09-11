@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /search
+Disallow: /*?sku=
+Disallow: /*?type=
+
+Sitemap: https://www.toolmarthou.com/sitemap.xml
