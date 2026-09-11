@@ -1,0 +1,260 @@
+// Tool Mart — site content model. Single source of truth for the static build.
+// Facts sourced from toolmarthou.com (via search snippets), the SentryX Tool Mart
+// workspace (Slack #tool-mart, Drive KPI scorecard, competitor price crawl) and the
+// toolmart-email-qa brand skill. Anything marked TODO must be confirmed with Tool Mart.
+
+export const site = {
+  name: 'Tool Mart',
+  legalName: 'Tool Mart, Inc.',
+  domain: 'https://www.toolmarthou.com',
+  tagline: 'Real tools. Real stores. Real people.',
+  founded: '1976',
+  founder: 'Norman Soutar',
+  email: 'info@toolmarthou.com',
+  locale: 'en_US',
+  social: {
+    facebook: 'https://www.facebook.com/toolmartinctexas',
+    pinterest: 'https://www.pinterest.com/toolmarthou/',
+    // TODO: confirm LinkedIn + YouTube channel URLs before go-live
+  },
+  // Formspree endpoint used by the SentryX team for Tool Mart leads. TODO: replace FORM_ID.
+  formEndpoint: 'https://formspree.io/f/FORM_ID',
+  // Mailchimp audience (us21 data center). TODO: replace with the embedded-form action URL.
+  newsletterAction: 'https://toolmarthou.us21.list-manage.com/subscribe/post',
+};
+
+export const locations = [
+  {
+    id: 'houston',
+    name: 'Tool Mart Houston',
+    shortName: 'Houston',
+    handle: 'pages/houston',
+    streetAddress: '13721 S. Gessner Rd, Suite 200',
+    addressLocality: 'Missouri City',
+    addressRegion: 'TX',
+    postalCode: '77489',
+    phone: '(713) 222-8665',
+    phoneE164: '+17132228665',
+    hours: 'Mon–Fri 7:30 AM – 5:00 PM',
+    hoursSpec: { days: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:30', closes: '17:00' },
+    geo: { lat: 29.602564, lng: -95.526963 },
+    mapQuery: 'Tool Mart Inc, 13721 S Gessner Rd Ste 200, Missouri City, TX 77489',
+    blurb: 'Our flagship store and factory-authorized RIDGID® & Greenlee® repair center, just off S. Gessner near Beltway 8 — 20 minutes from downtown Houston and the Energy Corridor.',
+    services: ['Tool sales & will-call pickup', 'RIDGID® & Greenlee® authorized repair', 'Equipment rental desk', 'Contractor accounts & PO ordering'],
+    trackEvent: 'houston_call_click',
+    landmarks: ['Beltway 8 & S. Gessner', 'Missouri City / Stafford / Sugar Land', 'Southwest Houston'],
+  },
+  {
+    id: 'san-antonio',
+    name: 'Tool Mart San Antonio',
+    shortName: 'San Antonio',
+    handle: 'pages/san-antonio',
+    streetAddress: '10568 Sentinel St',
+    addressLocality: 'San Antonio',
+    addressRegion: 'TX',
+    postalCode: '78217',
+    phone: '(210) 655-6116',
+    phoneE164: '+12106556116',
+    hours: 'Mon–Fri 7:30 AM – 5:00 PM',
+    hoursSpec: { days: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:30', closes: '17:00' },
+    geo: { lat: 29.5406, lng: -98.4098 }, // TODO: verify pin coordinates with Google Business Profile
+    mapQuery: 'Tool Mart Inc, 10568 Sentinel St, San Antonio, TX 78217',
+    blurb: 'Serving San Antonio, New Braunfels and the Hill Country from our Northeast Side store near Wurzbach Parkway — same pro-grade inventory, same trade-savvy counter team.',
+    services: ['Tool sales & will-call pickup', 'Repair drop-off (routed to our certified shop)', 'Equipment rental desk', 'Contractor accounts & PO ordering'],
+    trackEvent: 'san_antonio_call_click',
+    landmarks: ['Wurzbach Pkwy & Wetmore Rd', 'Northeast San Antonio', 'Loop 410 / I-35 corridor'],
+  },
+];
+
+// Brand table — trademark symbol on first mention per page is handled in templates via brandMark().
+export const brands = [
+  { id: 'ridgid', name: 'RIDGID', mark: '®', handle: 'collections/ridgid', authorized: 'Factory-authorized dealer & repair center', color: '#E0421B',
+    title: 'RIDGID Tools Houston | Authorized RIDGID Dealer – Tool Mart',
+    description: 'RIDGID® pipe threading machines, power drives, dies, vises and SeeSnake® gear in Houston & San Antonio. Factory-authorized dealer and repair center.',
+    h1: 'RIDGID® Tools in Houston & San Antonio',
+    intro: 'Tool Mart is a factory-authorized RIDGID® dealer and an authorized RIDGID repair center. From the 1224 and 535 threading machines to 700 power drives, dies, TRISTAND® vises and SeeSnake® cameras, we stock the equipment plumbing and mechanical contractors run every day — with genuine OEM parts and a certified shop behind every sale.',
+    highlights: ['Listed on RIDGID’s official Where-to-Buy distributor search', 'Genuine RIDGID dies, oils and OEM parts in stock', 'Factory-trained technicians for threaders, drain machines and press tools'],
+    categories: ['pipe-threading', 'drain-inspection', 'press-crimp', 'batteries-accessories'] },
+  { id: 'milwaukee', name: 'Milwaukee', mark: '®', handle: 'collections/milwaukee', authorized: 'Authorized dealer', color: '#DB021D',
+    title: 'Milwaukee Tools Houston | Authorized M18 FUEL Dealer',
+    description: 'Authorized Milwaukee® dealer in Houston & San Antonio: M18 FUEL™ threaders, band saws, rotary hammers, FORCE LOGIC™ press tools, batteries and PACKOUT™.',
+    h1: 'Milwaukee® Tools in Houston & San Antonio',
+    intro: 'Built around the industry-leading M18™ cordless system, Milwaukee® tools are engineered for the most demanding jobsites. Tool Mart is an authorized Milwaukee dealer — stock the M18 FUEL™ pipe threader, deep-cut band saws, FORCE LOGIC™ press and crimp tools, REDLITHIUM™ batteries and PACKOUT™ storage, all backed by full manufacturer warranty.',
+    highlights: ['Full M18 FUEL™ line for plumbing, electrical and mechanical trades', 'FORCE LOGIC™ press, crimp and cutting systems for utility work', 'REDLITHIUM™ battery packs and chargers always in stock'],
+    categories: ['cordless-power-tools', 'press-crimp', 'batteries-accessories'] },
+  { id: 'greenlee', name: 'Greenlee', mark: '®', handle: 'collections/greenlee', authorized: 'Authorized dealer & repair center', color: '#00873E',
+    title: 'Greenlee Tools Houston | Benders, Pullers & Knockouts',
+    description: 'Authorized Greenlee® dealer and repair center in Houston & San Antonio: 555 benders, UT10 pullers, hydraulic crimpers, Slug-Buster® knockouts and reel stands.',
+    h1: 'Greenlee® Tools in Houston & San Antonio',
+    intro: 'Electricians have trusted Greenlee® for more than a century, and Tool Mart has stocked and serviced it for fifty years. We carry the 555 Classic electric bender, 1800 mechanical bender, UT10 puller packages, 12-ton battery crimpers and Slug-Buster® knockout systems — and our certified shop performs Greenlee-authorized repairs with genuine parts.',
+    highlights: ['Authorized Greenlee repair center — OEM parts, warranty preserved', 'Bender shoe groups, dies and accessories for every conduit size', 'Cable pulling systems for commercial and industrial installs'],
+    categories: ['benders-pullers-knockouts', 'press-crimp', 'batteries-accessories'] },
+  { id: 'dewalt', name: 'DeWALT', mark: '®', handle: 'collections/dewalt', authorized: 'Authorized dealer', color: '#FEBD17',
+    title: 'DeWALT Power Tools Houston | Authorized Dealer – Tool Mart',
+    description: 'Authorized DeWALT® dealer in Houston & San Antonio. 20V MAX*, XR® and FLEXVOLT® cordless tools, batteries and accessories with same-day pickup.',
+    h1: 'DeWALT® Power Tools in Houston & San Antonio',
+    intro: 'DeWALT® professional power tools, industrial-grade accessories and 20V MAX*, XR® and FLEXVOLT® battery platforms — available for fast ordering with real local support. Tool Mart is an authorized DeWALT dealer, so every tool carries full manufacturer warranty.',
+    highlights: ['20V MAX*, XR® and FLEXVOLT® cordless platforms', 'Jobsite drills, hammers, saws and grinders', 'Batteries, chargers and TOUGHSYSTEM® storage'],
+    categories: ['cordless-power-tools', 'batteries-accessories'] },
+];
+
+export const otherBrands = ['Bosch', 'Klein Tools', 'Enerpac', 'Werner', 'Generac', 'Starrett', 'Channellock', 'Proto', 'Lift-All', 'Burndy'];
+
+export const categories = [
+  { id: 'pipe-threading', name: 'Pipe Threading & Plumbing', handle: 'collections/pipe-threading-tools', icon: 'threader',
+    blurb: 'RIDGID® 1224, 535 & 300 threading machines, 700 power drives, 12-R manual sets, dies, oilers and TRISTAND® vises.',
+    kw: 'pipe threading machine Houston' },
+  { id: 'cordless-power-tools', name: 'Cordless Power Tools', handle: 'collections/power-tools', icon: 'drill',
+    blurb: 'Milwaukee® M18 FUEL™ and DeWALT® 20V MAX* drills, band saws, rotary hammers, grinders and combo kits.',
+    kw: 'cordless power tools Houston' },
+  { id: 'benders-pullers-knockouts', name: 'Benders, Pullers & Knockouts', handle: 'collections/utility-electricians-tools', icon: 'bender',
+    blurb: 'Greenlee® 555 and 1800 conduit benders, UT10 cable pullers, Slug-Buster® knockout sets and reel stands.',
+    kw: 'conduit bender Houston' },
+  { id: 'press-crimp', name: 'Press, Crimp & Cutting Tools', handle: 'collections/press-crimp-tools', icon: 'press',
+    blurb: 'Milwaukee® FORCE LOGIC™ press tools, 12-ton crimpers, cable cutters, jaws and die kits for utility and mechanical work.',
+    kw: 'press tool Houston' },
+  { id: 'drain-inspection', name: 'Drain Cleaning & Inspection', handle: 'collections/drain-cleaning-inspection', icon: 'camera',
+    blurb: 'RIDGID® drum and sectional drain machines, SeeSnake® camera reels and locators for service plumbers.',
+    kw: 'drain cleaning machine Houston' },
+  { id: 'hydraulic', name: 'Hydraulic Tools', handle: 'collections/enerpac', icon: 'hydraulic',
+    blurb: 'Enerpac® cylinders, hand pumps, hydraulic punches, hoses and couplers for industrial maintenance.',
+    kw: 'Enerpac distributor Houston' },
+  { id: 'hand-tools', name: 'Hand Tools & Measuring', handle: 'collections/general-purpose-hand-tools', icon: 'wrench',
+    blurb: 'Klein Tools®, Channellock®, Proto® and Starrett® — pliers, wrenches, tapes, levels and precision measuring.',
+    kw: 'hand tools Houston' },
+  { id: 'batteries-accessories', name: 'Batteries, Dies & Accessories', handle: 'collections/parts-accessories', icon: 'battery',
+    blurb: 'REDLITHIUM™ and 20V MAX* batteries, threading dies, blades, bits and OEM replacement parts.',
+    kw: 'power tool batteries Houston' },
+];
+
+export const trades = [
+  { id: 'plumbers', name: 'Plumbing & Pipefitting', short: 'Plumbers', handle: 'pages/plumbers', icon: 'threader',
+    title: 'Plumbing Contractor Tools Houston | RIDGID Threaders & More',
+    description: 'Tools for plumbing contractors in Houston & San Antonio: RIDGID® threading machines, drain cleaners, SeeSnake® cameras, press tools and rentals.',
+    h1: 'Tools for Plumbing & Pipefitting Contractors',
+    intro: 'From rough-in to service calls, Tool Mart stocks what plumbing and pipefitting crews in Texas run every day — and we repair it when it breaks. Factory-authorized RIDGID® dealer and repair center since 1976.',
+    needs: ['Threading machines & power drives (RIDGID® 1224, 535, 300, 700)', 'Drain cleaning machines & SeeSnake® inspection', 'Press tools, jaws and rings for copper & PEX', 'Pipe vises, cutters, reamers and oilers', 'Rental threaders for one-off or overflow jobs'],
+    categories: ['pipe-threading', 'drain-inspection', 'press-crimp', 'batteries-accessories'],
+    brands: ['ridgid', 'milwaukee'] },
+  { id: 'electricians', name: 'Electrical Contractors', short: 'Electricians', handle: 'pages/electricians', icon: 'bender',
+    title: 'Electrician Tools Houston | Greenlee, Milwaukee, Klein',
+    description: 'Tools for electrical contractors in Houston & San Antonio: Greenlee® benders, cable pullers, knockouts, Milwaukee® crimpers and Klein Tools® hand tools.',
+    h1: 'Tools for Electrical Contractors',
+    intro: 'Conduit bending, cable pulling, crimping and terminating — Tool Mart has equipped Houston and San Antonio electricians for fifty years with Greenlee®, Milwaukee® and Klein Tools®, plus Greenlee-authorized repair.',
+    needs: ['Conduit benders & shoe groups (Greenlee® 555, 1800, 851)', 'Cable pullers, feeders and reel stands', 'Hydraulic knockout & Slug-Buster® punch sets', 'Battery crimpers, cutters and die kits', 'Lineman’s bits, fish tapes and hand tools'],
+    categories: ['benders-pullers-knockouts', 'press-crimp', 'cordless-power-tools', 'hand-tools'],
+    brands: ['greenlee', 'milwaukee'] },
+  { id: 'hvac-mechanical', name: 'HVAC & Mechanical', short: 'HVAC & Mechanical', handle: 'pages/hvac-mechanical', icon: 'press',
+    title: 'HVAC & Mechanical Contractor Tools Houston | Tool Mart',
+    description: 'Tools for HVAC and mechanical contractors in Houston & San Antonio: press tools, band saws, rotary hammers, threading equipment, hydraulics and rentals.',
+    h1: 'Tools for HVAC & Mechanical Contractors',
+    intro: 'Mechanical rooms, hydronic piping, refrigerant lines and structural work demand tools that keep pace. Tool Mart stocks the Milwaukee®, RIDGID®, DeWALT® and Enerpac® equipment mechanical crews rely on — with rental coverage for peak workloads.',
+    needs: ['Press tools for copper, stainless and carbon steel', 'Deep-cut band saws, rotary hammers and mag drills', 'Threading machines and power drives', 'Enerpac® hydraulic cylinders and pumps', 'Ladders, lifting slings and jobsite safety'],
+    categories: ['press-crimp', 'cordless-power-tools', 'pipe-threading', 'hydraulic'],
+    brands: ['milwaukee', 'ridgid', 'dewalt'] },
+];
+
+// Product catalogue sample — real Tool Mart SKUs and list prices from the weekly competitor
+// price crawl (Sept 2026). Titles rewritten in Title Case (KPI HYG-04). `ecom` marks SKUs that
+// should show Add to Cart; catalogue-only SKUs get a quote CTA. Images are placeholders — swap
+// with Shopify CDN product images (alt text is already written).
+export const products = [
+  { sku: 'RID26092', brand: 'ridgid', title: 'RIDGID 1224 Pipe Threading Machine, 1/2"–4" NPT, 120V', price: 12195.32, category: 'pipe-threading', img: 'threader', handle: 'products/ridgid-1224-pipe-threading-machine-26092', ecom: false, stock: 'in', badge: 'Best seller',
+    blurb: 'Heavy-duty 1/2"–4" threading with the 711 & 714 die heads, oil system and 120V 60Hz motor — the workhorse of Houston fab shops.' },
+  { sku: 'RID93287', brand: 'ridgid', title: 'RIDGID 535M Pipe Threading Machine, 1/2"–2", 115V 36 RPM', price: 8057.96, category: 'pipe-threading', img: 'threader', handle: 'products/ridgid-535-pipe-threader', ecom: false, stock: 'in', badge: 'Contractor pick',
+    blurb: 'The industry-standard 535 with 811A quick-opening die head, hammer chuck and 36 RPM — built for daily production threading.' },
+  { sku: 'RID41935', brand: 'ridgid', title: 'RIDGID 700 Power Drive, 115V', price: 1893.74, category: 'pipe-threading', img: 'drive', handle: 'products/ridgid-700-power-drive-41935', ecom: false, stock: 'in',
+    blurb: 'Portable 1/8"–2" threading power for the field. Pairs with 12-R die heads; reversible and spiral-gear driven.' },
+  { sku: 'RID15682', brand: 'ridgid', title: 'RIDGID 300 Power Drive Complete, 1/2"–2" NPT, 115V 38 RPM', price: 5651.59, category: 'pipe-threading', img: 'threader', handle: 'products/ridgid-300-power-drive-complete-15682', ecom: false, stock: 'in',
+    blurb: 'Complete 300 Power Drive with die head, support arm and cutter — versatile threading for shop or jobsite.' },
+  { sku: 'RID36475', brand: 'ridgid', title: 'RIDGID 12-R Manual Ratchet Threader Set, 1/2"–2" NPT', price: 1049.34, category: 'pipe-threading', img: 'dies', handle: 'products/ridgid-12-r-threader-set-36475', ecom: false, stock: 'in',
+    blurb: 'Six 12-R die heads with ratchet handle in a steel carrying case — the manual threading standard.' },
+  { sku: 'RID47770', brand: 'ridgid', title: 'RIDGID Universal Dies, 1"–2" NPT, High-Speed', price: 205.12, category: 'batteries-accessories', img: 'dies', handle: 'products/ridgid-universal-dies-1-2-npt-hs-47770', ecom: true, stock: 'in',
+    blurb: 'Genuine RIDGID high-speed universal dies for 811A/815A die heads. Ships same day.' },
+  { sku: 'RID36273', brand: 'ridgid', title: 'RIDGID 460-6 TRISTAND® Chain Vise', price: 478.10, category: 'pipe-threading', img: 'vise', handle: 'products/ridgid-460-6-tristand-chain-vise-36273', ecom: true, stock: 'in',
+    blurb: 'Portable tripod chain vise for 1/8"–6" pipe with integrated tool tray and bender.' },
+  { sku: 'RID10883', brand: 'ridgid', title: 'RIDGID 418 All-Weather Oiler', price: 372.83, category: 'batteries-accessories', img: 'oiler', handle: 'products/ridgid-418-oiler-10883', ecom: true, stock: 'in',
+    blurb: 'Hand-pump oiler with one gallon of Nu-Clear thread cutting oil — keeps dies cool and threads clean.' },
+  { sku: 'RID26192', brand: 'ridgid', title: 'RIDGID 1224 Dies Set, 2-1/2"–4" NPT, High-Speed', price: 303.72, category: 'batteries-accessories', img: 'dies', handle: 'products/ridgid-1224-4-piece-pipe-threader-dies-set-2-1-2-inch-to-4-inch-26192', ecom: true, stock: 'in',
+    blurb: 'Four-piece high-speed die set for the RIDGID 1224 threading machine.' },
+  { sku: 'MIL48-11-1852', brand: 'milwaukee', title: 'Milwaukee M18™ REDLITHIUM™ XC5.0 Extended Capacity Battery, 2-Pack', price: 252.89, category: 'batteries-accessories', img: 'battery', handle: 'products/milwaukee-m18-redlithium-xc5-0-battery-two-pack-48-11-1852', ecom: true, stock: 'in', badge: 'Top seller',
+    blurb: 'Two XC5.0 packs with REDLINK™ intelligence — the most-ordered item on toolmarthou.com.' },
+  { sku: 'MIL2874-22HD', brand: 'milwaukee', title: 'Milwaukee M18 FUEL™ Pipe Threader Kit with ONE-KEY™', price: 2117.94, category: 'pipe-threading', img: 'drive', handle: 'products/milwaukee-m18-fuel-pipe-threader-one-key-kit-2874-22hd', ecom: false, stock: 'in',
+    blurb: 'Cordless 1/8"–2" threading with AUTOSTOP™ kickback control, ONE-KEY™ tracking and two HIGH OUTPUT™ HD12.0 batteries.' },
+  { sku: 'MIL2929-22', brand: 'milwaukee', title: 'Milwaukee M18 FUEL™ Deep Cut Band Saw Kit', price: 728.79, category: 'cordless-power-tools', img: 'saw', handle: 'products/milwaukee-m18-fuel-deep-cut-band-saw-kit-2929-22', ecom: false, stock: 'in',
+    blurb: '5" × 5" cut capacity, 380 SFPM and the power to cut 4" schedule 80 pipe — cordless.' },
+  { sku: 'MIL48-11-1865', brand: 'milwaukee', title: 'Milwaukee M18 REDLITHIUM™ HIGH OUTPUT™ XC6.0 Battery', price: 194.76, category: 'batteries-accessories', img: 'battery', handle: 'products/milwaukee-m18-high-output-xc6-0-battery-48-11-1865', ecom: true, stock: 'in',
+    blurb: '50% more power and 50% cooler running than standard XC packs.' },
+  { sku: 'MIL3697-22', brand: 'milwaukee', title: 'Milwaukee M18 FUEL™ 2-Tool Combo Kit (Hammer Drill + Impact Driver)', price: 413.25, category: 'cordless-power-tools', img: 'drill', handle: 'products/milwaukee-m18-fuel-2-tool-combo-kit-3697-22', ecom: true, stock: 'in',
+    blurb: 'Gen 4 hammer drill and 1/4" hex impact driver with two XC5.0 batteries, charger and PACKOUT™-compatible case.' },
+  { sku: 'MIL2912-22DE', brand: 'milwaukee', title: 'Milwaukee M18 FUEL™ 1" SDS Plus Rotary Hammer Kit with Dust Extractor', price: 782.82, category: 'cordless-power-tools', img: 'drill', handle: 'products/milwaukee-m18-fuel-1-sds-plus-rotary-hammer-dust-extractor-2912-22de', ecom: false, stock: 'in',
+    blurb: 'Corded-class concrete drilling with HAMMERVAC™ dust extraction for OSHA Table 1 compliance.' },
+  { sku: 'MIL2922-22', brand: 'milwaukee', title: 'Milwaukee M18™ FORCE LOGIC™ Press Tool Kit with ONE-KEY™, 1/2"–2" CTS Jaws', price: 3952.00, category: 'press-crimp', img: 'press', handle: 'products/milwaukee-m18-force-logic-press-tool-2922-22', ecom: false, stock: 'in',
+    blurb: 'Fastest press cycle in its class with ONE-KEY™ press reporting — includes 1/2"–2" CTS jaws.' },
+  { sku: 'GRN555RSC', brand: 'greenlee', title: 'Greenlee 555 Classic Electric Conduit Bender with Rigid Shoe Group', price: 6161.80, category: 'benders-pullers-knockouts', img: 'bender', handle: 'products/greenlee-555-classic-electric-bender-rigid-shoe-grn555rsc', ecom: false, stock: 'in', badge: 'Best seller',
+    blurb: 'The commercial-electrical standard: bends 1/2"–2" rigid, IMC and EMT with a single-shoe setup.' },
+  { sku: 'GRN1800', brand: 'greenlee', title: 'Greenlee 1800 Mechanical Bender, 1/2"–1" IMC & Rigid Conduit', price: 1677.63, category: 'benders-pullers-knockouts', img: 'bender', handle: 'products/greenlee-1800-mechanical-bender', ecom: false, stock: 'in',
+    blurb: 'Precise ratchet bends on 1/2"–1" IMC and rigid conduit — no power required.' },
+  { sku: 'GRNEK1240LX11', brand: 'greenlee', title: 'Greenlee EK1240LX 12-Ton Li-Ion Battery Crimper, 120V Charger', price: 5046.44, category: 'press-crimp', img: 'press', handle: 'products/greenlee-ek1240lx-12-ton-crimper-ek1240lx11', ecom: false, stock: 'in',
+    blurb: '12-ton dieless-compatible crimping with Intelligent Crimping System and 360° rotating head.' },
+  { sku: 'GRN6906A', brand: 'greenlee', title: 'Greenlee UT10 Cable Puller Package with Mobile VersiBoom & Adapters', price: 14767.51, category: 'benders-pullers-knockouts', img: 'puller', handle: 'products/greenlee-ut10-puller-package-6906a', ecom: false, stock: 'order',
+    blurb: 'The only 2-speed puller on the market — 10,000 lb pulls with a two-minute setup.' },
+  { sku: 'GRN7506', brand: 'greenlee', title: 'Greenlee 7506 Slug-Buster® Hydraulic Knockout Punch Set', price: 1803.27, category: 'benders-pullers-knockouts', img: 'punch', handle: 'products/greenlee-7506-hydraulic-knockout-set', ecom: false, stock: 'in',
+    blurb: 'Hydraulic knockouts for 1/2"–2" conduit in mild steel and stainless — hand pump included.' },
+  { sku: 'GRN683', brand: 'greenlee', title: 'Greenlee 683 Reel Jackstand', price: 420.49, category: 'benders-pullers-knockouts', img: 'reel', handle: 'products/greenlee-683-reel-jackstand', ecom: true, stock: 'in',
+    blurb: 'Screw-type jackstand for reels up to 2,500 lb; sold individually.' },
+  { sku: 'ENESTP35H', brand: 'enerpac', brandLabel: 'Enerpac', title: 'Enerpac SP35 Hydraulic Punch Set with P392 Hand Pump', price: 7218.95, category: 'hydraulic', img: 'hydraulic', handle: 'products/enerpac-sp35-hydraulic-punch-p392', ecom: false, stock: 'order',
+    blurb: '35-ton hydraulic punch for structural steel, angle and bus bar — complete with two-speed hand pump.' },
+  { sku: 'ENEP392', brand: 'enerpac', brandLabel: 'Enerpac', title: 'Enerpac P392 Two-Speed Hydraulic Hand Pump', price: 744.59, category: 'hydraulic', img: 'hydraulic', handle: 'products/enerpac-p392-hand-pump', ecom: false, stock: 'in',
+    blurb: '10,000 psi two-speed hand pump — the standard for cylinders, punches and pullers.' },
+  { sku: 'DEWDCB205-2', brand: 'dewalt', title: 'DeWALT 20V MAX* XR® 5.0Ah Lithium-Ion Battery, 2-Pack', price: null, category: 'batteries-accessories', img: 'battery', handle: 'products/dewalt-20v-max-xr-5-0ah-battery-2-pack-dcb205-2', ecom: false, stock: 'in',
+    blurb: 'Two 5.0Ah packs with LED state-of-charge indicator, compatible with all 20V MAX* tools and chargers.' },
+];
+
+export const rentals = [
+  { name: 'RIDGID® 300 Power Drive Threading Machine', use: '1/2"–2" threading for rough-in and repipes', img: 'threader' },
+  { name: 'RIDGID® 535 Threading Machine', use: 'Production threading up to 2"', img: 'threader' },
+  { name: 'RIDGID® 1224 Threading Machine', use: 'Large-diameter 2-1/2"–4" threading', img: 'threader' },
+  { name: 'RIDGID® 700 Power Drive', use: 'Portable field threading', img: 'drive' },
+  { name: 'Drain Cleaning Machines', use: 'Drum & sectional machines for service calls', img: 'camera' },
+  { name: 'SeeSnake® Inspection Camera Reels', use: 'Pipe inspection and locating', img: 'camera' },
+  { name: 'Press Tools & Jaw Sets', use: 'Copper, PEX and stainless pressing', img: 'press' },
+  { name: 'Greenlee® 555 Electric Bender', use: '1/2"–2" conduit bending', img: 'bender' },
+];
+
+export const repairFaq = [
+  { q: 'Which brands does Tool Mart repair?', a: 'We are a factory-authorized repair center for RIDGID® and Greenlee® — threading machines, power drives, drain machines, SeeSnake® cameras, press tools, benders and pullers — and we service most major professional power tool brands. Call ahead with the make and model and we will confirm scope.' },
+  { q: 'Do I need an appointment to drop off a tool?', a: 'No appointment is needed. Walk-ins are welcome Monday through Friday, 7:30 AM to 5:00 PM at 13721 S. Gessner, Suite 200, Missouri City, TX 77489. You can also drop off at our San Antonio store and we will route it to the shop.' },
+  { q: 'How does the quote work?', a: 'Every repair starts with a physical inspection by a certified technician — we do not quote remotely. You receive a written quote with a committed turnaround time before any work begins.' },
+  { q: 'How long does a repair take?', a: 'Most standard repairs are completed within a few business days depending on complexity and parts availability. Your written quote includes a committed timeframe.' },
+  { q: 'Will a repair void my manufacturer warranty?', a: 'No. Authorized repairs are performed to manufacturer specification with genuine OEM parts, which preserves your warranty coverage.' },
+  { q: 'How do I pay, and can you ship the tool back?', a: 'Payment is due when the repair is complete — pay by credit card at pickup, or by purchase order if you have a Tool Mart account. Return shipping is available on request.' },
+];
+
+export const rentalFaq = [
+  { q: 'What rental periods do you offer?', a: 'Daily, weekly and monthly rates on professional-grade threading, drain cleaning, inspection and pressing equipment. Flexible periods for a few hours, a day, or the length of a project.' },
+  { q: 'Is a deposit required?', a: 'Yes. A deposit is charged at the time of rental and refunded in full when the equipment is returned on time, clean and undamaged. If equipment is damaged or lost, a portion of the deposit covers repair or replacement.' },
+  { q: 'Can you help me choose the right machine?', a: 'Absolutely. Our counter team knows the trades — tell us the pipe size, material and job, and we will match you with the right threader, drain machine or press tool.' },
+  { q: 'Do you deliver rental equipment?', a: 'Rentals are picked up at our Houston or San Antonio stores. Ask about delivery options for larger machines or multi-week projects.' },
+];
+
+export const posts = [
+  { slug: 'tool-mart-tool-repair-services-explained', title: 'Tool Mart Tool Repair Services Explained: What to Expect, What’s Covered', tag: 'Repair', date: '2026-06-08', minutes: 6,
+    excerpt: 'From drop-off to written quote to OEM parts — a step-by-step look at how our certified shop handles RIDGID® and Greenlee® repairs.' },
+  { slug: 'how-to-choose-between-renting-vs-buying-tools', title: 'How to Choose Between Renting vs. Buying Tools', tag: 'Rental', date: '2026-05-20', minutes: 5,
+    excerpt: 'Renting versus buying isn’t just about cost — it’s about utilization, long-term value and how your crews operate.' },
+  { slug: 'top-tools-for-concrete-work-2026-contractor-guide', title: 'Top Tools for Concrete Work (2026 Contractor Guide)', tag: 'Buying guide', date: '2026-04-14', minutes: 7,
+    excerpt: 'Contractor-grade picks from SDS rotary hammers to finishing trowels trusted by pros.' },
+  { slug: 'how-to-choose-the-right-power-tool-battery-2026-professional-guide', title: 'How to Choose the Right Power Tool Battery (2026 Professional Guide)', tag: 'Buying guide', date: '2026-03-30', minutes: 6,
+    excerpt: 'Runtime, torque and platform strategy for 12V, 18V and 20V MAX* systems.' },
+  { slug: '5-proven-ways-to-maximize-jobsite-productivity', title: '5 Proven Ways to Maximize Jobsite Productivity', tag: 'Jobsite', date: '2025-12-08', minutes: 5,
+    excerpt: 'Better planning, the right equipment and clear communication — practical ways to boost output.' },
+  { slug: 'new-vs-rental-power-threader-which-is-the-better-choice-for-contractors', title: 'New vs. Rental Power Threader: Which Is the Better Choice for Contractors?', tag: 'Rental', date: '2025-12-03', minutes: 5,
+    excerpt: 'When a RIDGID® 300, 535 or 1224 pays for itself — and when a rental is the smarter call.' },
+];
+
+export const promotions = [
+  { title: 'Milwaukee® Fall Promotions', copy: 'Manufacturer promotions on M18 FUEL™ kits, batteries and PACKOUT™ storage. Limited-time pricing while promo stock lasts.', cta: 'See Milwaukee deals', href: 'collections/milwaukee', tag: 'Limited time' },
+  { title: 'RIDGID® Threading Bundles', copy: 'Bundle a threading machine with dies, oiler and TRISTAND® vise. Ask our counter team about bundle pricing.', cta: 'Request bundle quote', href: 'pages/contact#quote', tag: 'Bundle & save' },
+  { title: 'Contractor Account Perks', copy: 'Open a Tool Mart account for PO ordering, will-call pickup at both stores and priority repair scheduling.', cta: 'Open an account', href: 'pages/contact', tag: 'Trade accounts' },
+];
