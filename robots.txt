@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://dorisle-uxui.github.io/bizflow/sitemap.xml
+Sitemap: https://bizflow-jade.vercel.app/sitemap.xml
