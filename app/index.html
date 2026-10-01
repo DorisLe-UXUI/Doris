@@ -2432,7 +2432,7 @@ function trNode(n){if(n.nodeType===3){const p=n.parentNode;if(!p||/^(SCRIPT|STYL
 const i18nObs=new MutationObserver(ms=>{if(I18N.lang!=='en'&&!window.__collect)return;buildNames();for(const m of ms){if(m.type==='characterData')trNode(m.target);else m.addedNodes.forEach(trNode)}});
 function i18nStart(){i18nObs.observe(document.body,{childList:true,subtree:true,characterData:true});document.documentElement.lang=I18N.lang}
 A.lang=()=>{I18N.lang=I18N.lang==='en'?'vi':'en';I18N.cache.clear();try{localStorage.setItem('bf_lang',I18N.lang)}catch(e){}document.documentElement.lang=I18N.lang;S.ai=[];render()};
-const langBtn=()=>`<button class="btn sm" data-a="lang" data-noi18n aria-label="${I18N.lang==='en'?'Chuyển sang tiếng Việt':'Switch to English'}">${I18N.lang==='en'?'VI':'EN'}</button>`;
+const langBtn=()=>`<button class="btn sm" data-a="lang" data-noi18n aria-label="${I18N.lang==='en'?'Chuyển sang tiếng Việt':'Switch to English'}"><b style="padding:2px 6px;border-radius:99px;${I18N.lang==='en'?'opacity:.5':'background:var(--c1,#0A5CFF);color:#fff'}">VI</b><b style="padding:2px 6px;border-radius:99px;${I18N.lang==='en'?'background:var(--c1,#0A5CFF);color:#fff':'opacity:.5'}">EN</b></button>`;
 const PREFIX=[];
 for(const k in EN)if(k.length>=8&&/ $/.test(k)===false&&EN[k]&&PFX.has(k))PREFIX.push(k);PREFIX.sort((a,b)=>b.length-a.length);i18nStart();render();initStore();setTimeout(initBot,900);
 </script>
