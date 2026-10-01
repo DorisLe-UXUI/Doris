@@ -162,6 +162,7 @@ footer{padding-block:40px;color:var(--muted);font-size:14px;border-top:1px solid
 .hs-pin{justify-content:safe center;gap:22px}.hs-pin{padding-top:78px;box-sizing:border-box}.hs figure{width:min(72vw,820px,calc((100vh - 430px)*1.5))}.hs figure{min-width:300px}.hs-pin h2{font-size:clamp(26px,min(4vw,6vh),52px);margin-bottom:8px}
 @media (min-width:1001px){.lc.b{left:26%;top:auto;bottom:-7%}}
 .lang{padding:4px;display:inline-flex;gap:2px}.lang b{font-weight:600;padding:5px 9px;border-radius:99px;color:var(--ink2)}.lang b.on{background:var(--grad);color:#04122e}
+#c3d{display:none}.lc{flex-direction:row!important;text-align:left}
 </style>
 <div id="prog" aria-hidden="true"></div>
 <nav class="top" aria-label="Main navigation"><div class="wrap"><a class="logo" href="#top"><img src="../img/mark.png" alt="" width="34" height="35"><span>Biz<span class="g">Flow</span></span></a><a class="l" href="#moi-noi">Images</a><a class="l" href="#nganh">By industry</a><a class="l" href="#mot-ngay">A day at the shop</a><a class="l" href="#tinh-nang">Features</a><a class="l" href="#hoi-dap">FAQ</a><a class="lang" id="lang" href="../" data-noi18n aria-label="Chuyển sang tiếng Việt">VI</a><a class="btn pri" href="../app/" style="padding:10px 18px">Try it</a></div></nav>
@@ -324,7 +325,7 @@ BizBot.libs={};BizBot.load=u=>BizBot.libs[u]||(BizBot.libs[u]=new Promise((ok,no
    for(;;){show(SHOT[0]);tell(0);b.waveFor(2600);await sleep(3000);
     for(let i=0;i<SHOT.length;i++){show(SHOT[i]);tell(i+1);b.point=1;b.talk=1;await sleep(3700);b.point=0;b.talk=0;await sleep(350)}
     tell(SHOT.length+1);b.waveFor(2400);await sleep(3600)}}})}
- function load3d(){BizBot.load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js').then(()=>{boot3d();bootBot()})}
+ function load3d(){BizBot.load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js').then(()=>{bootBot()})}
  if(D.readyState==='complete')setTimeout(load3d,300);else addEventListener('load',()=>(window.requestIdleCallback||setTimeout)(load3d,{timeout:1500}))
 })();
 </script></body></html>
