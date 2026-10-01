@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dorisle-uxui.github.io/bizflow/sitemap.xml

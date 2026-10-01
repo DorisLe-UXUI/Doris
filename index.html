@@ -1,0 +1,329 @@
+<!doctype html><html lang="vi" data-static><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BizFlow | Phần mềm quản lý bán hàng, kho, lương, dòng tiền cho hộ kinh doanh</title>
+<meta name="description" content="BizFlow giúp quán cà phê, quán ăn, shop thời trang, cửa hàng gia dụng và tạp hóa quản lý bán hàng, kho, tem QR, hóa đơn, lương, dòng tiền và thuế ước tính. Không cần biết kế toán.">
+<link rel="canonical" href="https://dorisle-uxui.github.io/bizflow/"><link rel="alternate" hreflang="vi" href="https://dorisle-uxui.github.io/bizflow/"><link rel="alternate" hreflang="en" href="https://dorisle-uxui.github.io/bizflow/en/"><link rel="alternate" hreflang="x-default" href="https://dorisle-uxui.github.io/bizflow/">
+<meta name="robots" content="index,follow"><meta property="og:type" content="website"><meta property="og:locale" content="vi_VN"><meta property="og:site_name" content="BizFlow"><meta property="og:title" content="BizFlow: cả tiệm của bạn, gọn trong một màn hình"><meta property="og:description" content="BizFlow giúp quán cà phê, quán ăn, shop thời trang, cửa hàng gia dụng và tạp hóa quản lý bán hàng, kho, tem QR, hóa đơn, lương, dòng tiền và thuế ước tính. Không cần biết kế toán."><meta property="og:url" content="https://dorisle-uxui.github.io/bizflow/"><meta property="og:image" content="https://dorisle-uxui.github.io/bizflow/img/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#050A1C">
+<link rel="icon" href="img/mark.png"><link rel="preload" as="image" href="img/dash.webp" fetchpriority="high"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;800&family=Unbounded:wght@600&display=swap">
+<style>body{margin:0}</style></head><body>
+<style>
+/* Layout: sân khấu tối, tiêu đề lớn canh giữa, ảnh màn hình thật nghiêng 3D rồi dựng thẳng khi cuộn; sau đó là chuyến đi "một ngày ở tiệm" với khung ảnh dính bên phải. Một chủ đề tối duy nhất, có chủ ý. */
+:root{color-scheme:dark;--bg:#050A1C;--panel:#0B1330;--panel2:#101B40;--line:rgba(255,255,255,.09);--ink:#F2F5FF;--ink2:#A9B4D2;--muted:#7481A6;--blue:#2B7BFF;--cyan:#22C3FC;--mint:#6CF4C6;--orange:#FDBC1B;--grad:linear-gradient(100deg,#2B7BFF,#22C3FC 55%,#6CF4C6);--disp:"Unbounded","Be Vietnam Pro",system-ui,sans-serif;--body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);font-variant-numeric:tabular-nums;overflow-x:hidden}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.035em;line-height:1.12;text-wrap:balance}
+a{color:inherit}:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:20px}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:14px 24px;font-weight:600;text-decoration:none;border:1px solid transparent;transition:transform .2s,box-shadow .2s}
+.btn.pri{background:var(--grad);color:#041033;box-shadow:0 10px 40px -10px rgba(43,123,255,.8)}.btn.pri:hover{transform:translateY(-2px)}
+.btn.gh{border-color:var(--line);background:rgba(255,255,255,.04)}.btn.gh:hover{border-color:rgba(255,255,255,.3)}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(14px);background:rgba(5,10,28,.72);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:26px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;font:800 21px var(--body);letter-spacing:-.02em;text-decoration:none;margin-right:auto}
+nav.top a.l{color:var(--ink2);text-decoration:none;font-size:15px;font-weight:500}nav.top a.l:hover{color:var(--ink)}
+header.hero{position:relative;text-align:center;padding-block:72px 0;overflow:hidden}
+#c3d{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s}
+#c3d.on{opacity:1}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto;height:900px;background:radial-gradient(50% 50% at 25% 30%,rgba(43,123,255,.45),transparent 70%),radial-gradient(40% 45% at 78% 20%,rgba(108,244,198,.22),transparent 70%),radial-gradient(30% 30% at 60% 60%,rgba(253,188,27,.14),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.badge{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:99px;padding:6px 14px;font-size:14px;color:var(--ink2)}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}
+.hero h1{font-size:clamp(34px,6.2vw,76px);margin:22px auto 0;max-width:15ch}
+.hero p.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:56ch;margin:22px auto 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+.stagewrap{perspective:1600px;margin-top:56px;padding-inline:20px}
+.frame{max-width:1120px;margin-inline:auto;border-radius:18px;border:1px solid rgba(255,255,255,.14);background:#0d1636;box-shadow:0 60px 140px -40px rgba(43,123,255,.65),0 0 0 8px rgba(255,255,255,.03);overflow:hidden;transform-origin:50% 0;will-change:transform}
+.frame .bar{display:flex;gap:7px;padding:11px 14px;background:#0d1636}.frame .bar i{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.18)}
+.marq{overflow:hidden;border-block:1px solid var(--line);margin-top:72px;padding-block:18px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq div{display:flex;gap:48px;width:max-content;font:500 17px var(--disp);color:var(--muted);white-space:nowrap}
+section{padding-block:104px;position:relative}
+.eyebrowless h2,section h2{font-size:clamp(28px,4.2vw,52px);max-width:20ch}
+section p.sub{color:var(--ink2);max-width:60ch;margin-top:18px}
+.center{text-align:center}.center h2,.center p.sub{margin-inline:auto}
+/* ngành */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px}
+.tabs button{font:600 15px var(--body);color:var(--ink2);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:99px;padding:11px 20px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#061033;border-color:var(--ink)}
+.ind{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;align-items:center;margin-top:28px;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:32px}
+.ind h3{font-size:26px}.ind ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:12px}
+.ind li{display:flex;gap:12px;color:var(--ink2)}.ind li::before{content:"";flex:none;width:22px;height:22px;margin-top:3px;border-radius:50%;background:var(--grad);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.200 14.200L6.600 12l1.400-1.400 2.800 2.800 5.200-5.200 1.400 1.400z'/%3E%3C/svg%3E") center/contain no-repeat;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 100 20 10 10 0 000-20zm-1.200 14.200L6.600 12l1.400-1.400 2.800 2.800 5.200-5.200 1.400 1.400z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ind img{border-radius:16px;border:1px solid var(--line);width:100%}
+/* tour */
+.tour{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;margin-top:40px}
+.step{min-height:62vh;display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:.35;transition:opacity .4s}
+.step.on{opacity:1}
+.step time{font:600 14px var(--disp);color:var(--cyan)}
+.step h3{font-size:clamp(22px,2.4vw,32px)}.step p{color:var(--ink2);max-width:44ch}
+.step img{display:none;border-radius:14px;border:1px solid var(--line);margin-top:8px}
+.sticky{position:sticky;top:calc(84px + env(safe-area-inset-top,0px));height:calc(100vh - 120px);display:grid;place-items:center}
+.sticky .frame{position:relative;width:100%;aspect-ratio:1280/832;box-shadow:0 40px 120px -40px rgba(34,195,252,.55)}
+.sticky .frame img{position:absolute;left:0;right:0;top:32px;width:100%;opacity:0;transform:scale(1.03);transition:opacity .5s,transform .7s}
+.sticky .frame img.on{opacity:1;transform:none}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:44px}
+.b{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden;position:relative}
+.b h3{font-size:20px}.b p{color:var(--ink2);font-size:15.5px}
+.b.w3{grid-column:span 3}.b.w2{grid-column:span 2}.b.w4{grid-column:span 4}
+.b svg{width:100%;height:auto;margin-top:auto}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}.in .draw{animation:draw 2.2s .2s ease-out forwards}@keyframes draw{to{stroke-dashoffset:0}}
+.qrbox{position:relative;width:132px;height:132px;margin:auto auto 0;border-radius:16px;background:#fff;display:grid;place-items:center}
+.qrbox i{position:absolute;left:8px;right:8px;height:3px;border-radius:3px;background:var(--cyan);box-shadow:0 0 14px var(--cyan);top:12px;animation:scan 2.4s ease-in-out infinite}@keyframes scan{50%{top:117px}}
+.six{list-style:none;padding:0;margin:auto 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;counter-reset:s}
+.six li{counter-increment:s;border:1px solid var(--line);border-radius:14px;padding:12px;font-size:14px;color:var(--ink2);opacity:.35}
+.six li::before{content:counter(s);display:block;font:600 13px var(--disp);color:var(--mint);margin-bottom:4px}
+.in .six li{animation:lit .5s forwards;animation-delay:calc(var(--i)*.28s + .3s)}@keyframes lit{to{opacity:1;border-color:rgba(108,244,198,.5);color:var(--ink)}}
+.chat{display:flex;flex-direction:column;gap:8px;margin-top:auto;font-size:14.5px}.chat span{padding:9px 13px;border-radius:14px;background:rgba(255,255,255,.06);max-width:92%}.chat span.me{align-self:flex-end;background:rgba(43,123,255,.3)}
+.tg{display:inline-block;font-size:11.5px;font-weight:600;border-radius:6px;padding:0 7px;margin-right:6px;background:rgba(108,244,198,.16);color:var(--mint)}.tg.e{background:rgba(253,188,27,.16);color:var(--orange)}.tg.r{background:rgba(34,195,252,.16);color:var(--cyan)}
+.big{font:600 clamp(34px,4vw,54px) var(--disp);letter-spacing:-.04em;line-height:1}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;margin-top:44px}
+.gal figure{margin:0;border-radius:22px;overflow:hidden;border:1px solid var(--line);position:relative}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:14px;bottom:12px;background:rgba(5,10,28,.72);backdrop-filter:blur(8px);border-radius:99px;padding:5px 13px;font-size:13.5px;font-weight:500}
+.gal .a{grid-column:span 7}.gal .c{grid-column:span 5}
+.phone{position:absolute;right:6%;bottom:-70px;width:min(230px,22vw);border-radius:28px;border:6px solid #1a2550;box-shadow:0 40px 80px -30px #000;overflow:hidden;transform:rotate(5deg)}
+details{border-bottom:1px solid var(--line);padding:22px 0;max-width:820px;margin-inline:auto}summary{font:600 19px var(--body);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}summary::after{content:"+";color:var(--cyan);font-size:24px;line-height:1}details[open] summary::after{content:"–"}details p{color:var(--ink2);margin-top:12px}
+.final{text-align:center;border-radius:36px;padding:72px 24px;background:radial-gradient(60% 120% at 50% 0%,rgba(43,123,255,.55),transparent 70%),var(--panel);border:1px solid var(--line)}
+.final h2{margin-inline:auto;font-size:clamp(28px,4.4vw,56px)}
+footer{padding-block:40px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:80px}
+/* hiện dần khi cuộn tới */
+.js [data-r]{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js [data-r="l"]{transform:translateX(-40px)}.js [data-r="s"]{transform:scale(.94)}
+.js [data-r].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:no-preference){.marq div{animation:mq 38s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}}
+@media (prefers-reduced-motion:reduce){.js [data-r]{opacity:1;transform:none;transition:none}.qrbox i{animation:none}html{scroll-behavior:auto}}
+@media (max-width:900px){nav.top a.l{display:none}section{padding-block:68px}.ind,.tour{grid-template-columns:minmax(0,1fr)}.ind{padding:20px}.sticky{display:none}.step{min-height:0;opacity:1;padding-block:22px}.step img{display:block}.b.w3,.b.w2,.b.w4{grid-column:span 6}.gal .a,.gal .c{grid-column:span 12}.phone{display:none}.hero{padding-top:44px}.six{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* v3: chuyển động dày hơn */
+#prog{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--grad);z-index:60}
+.aur{position:absolute;inset:0;overflow:hidden;pointer-events:none}.aur i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55}
+.aur i:nth-child(1){width:520px;height:520px;left:-8%;top:-10%;background:#2B7BFF}.aur i:nth-child(2){width:420px;height:420px;right:-6%;top:6%;background:#12b8a6;opacity:.4}.aur i:nth-child(3){width:300px;height:300px;left:52%;top:38%;background:#fd9a1b;opacity:.22}
+@media (prefers-reduced-motion:no-preference){.aur i{animation:drift 16s ease-in-out infinite alternate}.aur i:nth-child(2){animation-duration:21s}.aur i:nth-child(3){animation-duration:13s}@keyframes drift{to{transform:translate(70px,50px) scale(1.15)}}}
+.hero::before{display:none}
+.js [data-split] .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}.js [data-split] .w>span{display:inline-block;transform:translateY(110%);transition:transform .9s cubic-bezier(.2,.75,.2,1);transition-delay:calc(var(--i)*55ms)}.js [data-split].in .w>span{transform:none}
+.g .w>span,.w .gi{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stagewrap{position:relative;max-width:1240px;margin-inline:auto}
+.fl{position:absolute;z-index:2;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.18);box-shadow:0 30px 70px -20px rgba(0,0,0,.8);will-change:transform}
+.fl.a{left:-1%;top:22%;width:21%;rotate:-7deg}.fl.b{right:-1%;top:8%;width:20%;rotate:6deg}
+.fl.ph{right:7%;bottom:-6%;width:15%;border-radius:26px;border:6px solid #17224d;rotate:4deg}
+.fl figcaption,.hs figcaption b{font-weight:600}
+.fl span{position:absolute;left:10px;bottom:10px;background:rgba(5,10,28,.75);backdrop-filter:blur(8px);border-radius:99px;padding:3px 11px;font-size:12.5px;font-weight:500}
+.state{padding-block:120px}.state p{font:600 clamp(26px,4.6vw,60px)/1.18 var(--disp);letter-spacing:-.035em;max-width:20ch;margin:0}
+.state .w{opacity:.14;transition:opacity .25s}.state .w.lit{opacity:1}
+.hs{height:360vh;padding:0}.hs-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:34px}
+.hs-track{display:flex;gap:28px;padding-inline:max(20px,calc((100vw - 1160px)/2));will-change:transform;width:max-content}
+.hs figure{margin:0;flex:none;width:min(72vw,820px);border-radius:28px;overflow:hidden;border:1px solid var(--line);background:var(--panel);position:relative}
+.hs figure img{width:100%;aspect-ratio:756/500;object-fit:cover}
+.hs figcaption{padding:20px 24px 24px;display:flex;flex-direction:column;gap:4px}.hs figcaption b{font:600 21px var(--disp);letter-spacing:-.02em}.hs figcaption span{color:var(--ink2);font-size:16px}
+.hs .cnt{position:absolute;right:18px;top:16px;font:600 13px var(--disp);background:rgba(5,10,28,.7);backdrop-filter:blur(8px);border-radius:99px;padding:5px 12px}
+.indp[hidden]{display:none}
+.b{--mx:50%;--my:50%}.b::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(340px circle at var(--mx) var(--my),rgba(34,195,252,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}.b:hover::after{opacity:1}
+.b{transition:transform .25s,border-color .25s}.b:hover{border-color:rgba(34,195,252,.4)}
+.lang{font:600 13px var(--body);color:var(--ink);background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:99px;padding:8px 13px;cursor:pointer;text-decoration:none}
+@media (max-width:900px){.fl{display:none}.hs{height:auto;padding-block:60px}.hs-pin{position:static;height:auto;overflow:visible}.hs-track{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:10px;transform:none!important}.hs figure{width:84vw;scroll-snap-align:center}.state{padding-block:70px}}
+@media (prefers-reduced-motion:reduce){.hs{height:auto;padding-block:60px}.hs-pin{position:static;height:auto}.hs-track{overflow-x:auto;width:auto;transform:none!important}.state .w{opacity:1}.js [data-split] .w>span{transform:none}}
+
+.botstage{position:absolute;left:-5%;bottom:-5%;width:27%;aspect-ratio:3/4;z-index:4;pointer-events:none}
+.botstage canvas{width:100%;height:100%;display:block;opacity:0;transition:opacity .8s;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55))}.botstage canvas.on{opacity:1}
+.say{position:absolute;left:46%;bottom:86%;width:max-content;max-width:min(300px,30vw);background:#fff;color:#06153E;border-radius:18px 18px 18px 4px;padding:12px 16px;font:600 15px/1.4 var(--body);box-shadow:0 20px 50px -15px rgba(0,0,0,.7);opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s;text-align:left}.say.on{opacity:1;transform:none}
+.frame{position:relative}.gb{position:relative;border-radius:20px;padding:1.5px;max-width:1123px;margin-inline:auto;background:conic-gradient(from var(--a,0deg),#2B7BFF,#22C3FC,#6CF4C6,#FDBC1B,#2B7BFF);box-shadow:0 60px 140px -40px rgba(43,123,255,.65)}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@media (prefers-reduced-motion:no-preference){.gb{animation:spin 7s linear infinite}@keyframes spin{to{--a:360deg}}}
+.gb .frame{border:0;box-shadow:none;max-width:none}
+@media (max-width:900px){.botstage{left:-6%;bottom:-9%;width:40%}.say{display:none}}
+
+@media (max-width:700px){#c3d{display:none}}
+#c3d{z-index:0}.hero .wrap{z-index:1}
+@media (min-width:1001px){header.hero{text-align:left;padding-top:56px}.hgrid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:36px;align-items:center;max-width:1320px}.hero h1{margin-inline:0;font-size:clamp(34px,4.3vw,62px);max-width:13ch}.hero p.lead{margin-inline:0}.hero .cta{justify-content:flex-start}.stagewrap{margin-top:0;padding:40px 0 70px 60px;perspective:1500px}.botstage{left:-9%;bottom:0;width:46%}.say{left:52%;bottom:84%;max-width:260px}.fl.b{right:-5%;top:0;width:30%}.fl.ph{right:3%;bottom:1%;width:19%}.marq{margin-top:40px}}
+@media (max-width:1000px){.hgrid{display:block}.stagewrap{padding-inline:0}}
+
+.botstage .botimg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 30px rgba(0,0,0,.55));transition:opacity .6s}
+.botstage canvas{position:absolute;inset:0}.botstage.live .botimg{opacity:0}
+@media (max-width:900px){.botstage{left:-7%;bottom:-13%;width:50%}.say{display:block;left:40%;bottom:88%;max-width:56vw;font-size:13px;padding:9px 12px}.stagewrap{margin-top:86px;padding-bottom:40px}}
+
+/* robot đi lại trước màn hình: canvas trải hết chiều ngang sân khấu */
+.stagewrap .botstage{left:-7%;right:-5%;bottom:-7%;top:auto;width:auto;height:78%;aspect-ratio:auto}
+.stagewrap .botstage canvas{position:absolute;left:0;top:0;width:100%;height:100%;filter:none;opacity:0;transition:opacity .5s}.stagewrap .botstage canvas.on{opacity:1}
+.stagewrap .botstage .botimg{position:absolute;left:1%;bottom:0;top:auto;right:auto;height:96%;width:auto;filter:none}
+.stagewrap .say{left:clamp(1%,calc(var(--bx,.16)*100% - 30px),58%);bottom:94%;transition:opacity .4s,transform .4s,left .5s}
+@media (max-width:900px){.stagewrap .botstage{left:-5%;right:-5%;bottom:-16%;height:74%}.stagewrap .say{display:block;max-width:60vw;font-size:13px;padding:9px 12px;left:clamp(1%,calc(var(--bx,.16)*100% - 20px),40%)}}
+
+/* v5: điện thoại thấy robot ngay màn đầu, chip thông báo sống quanh màn hình */
+.lchips{position:absolute;inset:0;z-index:5;pointer-events:none}
+.lc{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.96);color:#06153E;border-radius:99px;padding:8px 14px 8px 10px;font:600 13px var(--body);box-shadow:0 14px 34px -12px rgba(0,0,0,.7);opacity:0;transform:translateY(10px) scale(.92);transition:opacity .35s,transform .45s cubic-bezier(.2,1.4,.4,1);white-space:nowrap;max-width:74vw;overflow:hidden;text-overflow:ellipsis}
+.lc.on{opacity:1;transform:none}.lc i{width:9px;height:9px;border-radius:50%;background:#18a36a;box-shadow:0 0 0 4px rgba(24,163,106,.18);flex:none}.lc.b i{background:#e08a00;box-shadow:0 0 0 4px rgba(224,138,0,.18)}.lc.c i{background:#2B7BFF;box-shadow:0 0 0 4px rgba(43,123,255,.18)}
+.lc.a{right:-2%;top:-5%}.lc.b{left:-3%;top:22%}.lc.c{right:4%;top:46%}
+.stagewrap::after{content:"";position:absolute;left:8%;right:8%;bottom:-9%;height:22%;background:radial-gradient(50% 50% at 50% 50%,rgba(43,123,255,.55),transparent 70%);filter:blur(18px);z-index:0;pointer-events:none}
+.endbot{position:relative;width:min(240px,56vw);aspect-ratio:3/4;margin:-110px auto 6px}.endbot img,.endbot canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.endbot canvas{opacity:0;transition:opacity .5s}.endbot.live canvas{opacity:1}.endbot.live img{opacity:0}
+.final{margin-top:90px}
+@media (max-width:1000px){.hgrid{display:flex;flex-direction:column}.hgrid .stagewrap{order:-1;margin:34px 0 84px;width:100%}header.hero{padding-top:18px}.lc{font-size:12px;padding:7px 12px 7px 9px}.lc.a{right:0;top:-11%}.lc.b{display:none}.lc.c{right:0;top:auto;bottom:-24%}.hero h1{font-size:clamp(30px,8.4vw,44px)}}
+#heroframe .frame{position:relative}#heroframe .frame img{display:block;width:100%;height:auto;aspect-ratio:1280/800;object-fit:cover;object-position:top left}#heroframe .frame img.nx{position:absolute;left:0;bottom:0;opacity:0;transition:opacity .5s}#heroframe .frame img.nx.on{opacity:1}
+.hs-pin{justify-content:safe center;gap:22px}.hs-pin{padding-top:78px;box-sizing:border-box}.hs figure{width:min(72vw,820px,calc((100vh - 430px)*1.5))}.hs figure{min-width:300px}.hs-pin h2{font-size:clamp(26px,min(4vw,6vh),52px);margin-bottom:8px}
+@media (min-width:1001px){.lc.b{left:26%;top:auto;bottom:-7%}}
+</style>
+<div id="prog" aria-hidden="true"></div>
+<nav class="top" aria-label="Điều hướng chính"><div class="wrap"><a class="logo" href="#top"><img src="img/mark.png" alt="" width="34" height="35"><span>Biz<span class="g">Flow</span></span></a><a class="l" href="#moi-noi">Hình ảnh</a><a class="l" href="#nganh">Theo ngành</a><a class="l" href="#mot-ngay">Một ngày ở tiệm</a><a class="l" href="#tinh-nang">Tính năng</a><a class="l" href="#hoi-dap">Hỏi đáp</a><a class="lang" id="lang" href="en/" data-noi18n aria-label="Switch to English">EN</a><a class="btn pri" href="app/" style="padding:10px 18px">Dùng thử</a></div></nav>
+<header class="hero" id="top"><div class="aur" aria-hidden="true"><i></i><i></i><i></i></div><canvas id="c3d" aria-hidden="true"></canvas><div class="wrap hgrid"><div class="htxt">
+ <span class="badge" data-r><i></i>Phần mềm quản lý cho hộ kinh doanh và cửa hàng nhỏ</span>
+ <h1 data-split>Cả tiệm của bạn, gọn trong <span class="g">một màn hình.</span></h1>
+ <p class="lead" data-r style="--d:.3s">BizFlow lo bán hàng, kho, tem QR, hóa đơn, lương, dòng tiền và thuế ước tính. Bạn không cần biết kế toán: phần mềm tự tính rồi nói lại bằng tiếng Việt dễ hiểu.</p>
+ <div class="cta" data-r style="--d:.4s"><a class="btn pri" href="app/">Dùng thử với tiệm mẫu</a><a class="btn gh" href="#mot-ngay">Xem BizFlow làm gì</a></div></div>
+ <div class="stagewrap">
+  <div class="lchips" id="lchips" aria-hidden="true"><span class="lc a"><i></i><b></b></span><span class="lc b"><i></i><b></b></span><span class="lc c"><i></i><b></b></span></div><div class="botstage"><div class="say on" id="say" aria-live="polite">Chào bạn! Mình là trợ lý của BizFlow.</div><img class="botimg" src="img/bot.webp" width="450" height="600" alt="Robot trợ lý BizFlow vẫy tay rồi chỉ vào màn hình ứng dụng"><canvas id="botc" aria-hidden="true"></canvas></div>
+  <figure class="fl b" data-par="-.16" style="margin:0"><img src="img/life2.webp" width="756" height="500" alt="Xem tổng quan kinh doanh trên điện thoại"><span>Xem trên điện thoại</span></figure>
+  <figure class="fl ph" data-par="-.22" style="margin:0"><img src="img/mobile.webp" width="600" height="1231" alt="BizFlow trên màn hình điện thoại"></figure>
+  <div class="gb" id="heroframe"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="img/dash.webp" width="1280" height="800" alt="Trang tổng quan BizFlow trả lời bảy câu hỏi của chủ tiệm: đang bán được bao nhiêu, có lời không, tiền còn bao nhiêu" fetchpriority="high"></div></div></div></div>
+ <div class="marq" aria-hidden="true"><div><span>Quán cà phê</span><span>Nhà hàng</span><span>Quán ăn</span><span>Tiệm bánh</span><span>Shop thời trang</span><span>Đồ gia dụng</span><span>Tạp hóa</span><span>Spa, làm đẹp</span><span>Bán online</span><span>Trung tâm dạy học</span><span>Quán cà phê</span><span>Nhà hàng</span><span>Quán ăn</span><span>Tiệm bánh</span><span>Shop thời trang</span><span>Đồ gia dụng</span><span>Tạp hóa</span><span>Spa, làm đẹp</span><span>Bán online</span><span>Trung tâm dạy học</span></div></div>
+</header>
+<main>
+<section class="state"><div class="wrap"><p data-fill>Bạn không cần biết kế toán. Chỉ cần biết bán hàng. Kho, hóa đơn, lương, dòng tiền và thuế, BizFlow tự lo rồi báo lại bằng lời dễ hiểu.</p></div></section>
+<section class="hs" id="moi-noi"><div class="hs-pin"><div class="wrap"><h2 data-split>Ở quầy, trong kho, hay trên điện thoại.</h2><p class="sub" data-r>BizFlow chạy trên trình duyệt của máy tính, máy tính bảng và điện thoại. Bốn ảnh dưới đây là ảnh minh họa bối cảnh sử dụng.</p></div>
+ <div class="hs-track" id="hstrack">
+  <figure><img src="img/life1.webp" width="756" height="500" alt="Chủ quán cà phê xem báo cáo doanh thu trên laptop" loading="lazy" decoding="async"><span class="cnt">1 / 4</span><figcaption><b>Cuối ngày, mở laptop là thấy hết</b><span>Doanh thu, lợi nhuận, món bán chạy và những việc cần xử lý.</span></figcaption></figure>
+  <figure><img src="img/life2.webp" width="756" height="500" alt="Xem tổng quan kinh doanh trên điện thoại" loading="lazy" decoding="async"><span class="cnt">2 / 4</span><figcaption><b>Không ở tiệm vẫn nắm được tiệm</b><span>Mở điện thoại xem số bán trong ngày và cảnh báo tồn kho.</span></figcaption></figure>
+  <figure><img src="img/life3.webp" width="756" height="500" alt="Thu ngân chọn món trên máy tính bảng tại quầy" loading="lazy" decoding="async"><span class="cnt">3 / 4</span><figcaption><b>Tại quầy, chạm là bán</b><span>Chọn món có hình, thanh toán một lần bấm, kho tự trừ.</span></figcaption></figure>
+  <figure><img src="img/life4.webp" width="756" height="500" alt="Đối chiếu hóa đơn với sổ sách tại bàn làm việc" loading="lazy" decoding="async"><span class="cnt">4 / 4</span><figcaption><b>Đối chiếu hóa đơn, kho, công nợ</b><span>Mọi con số nằm cùng một chỗ, không phải dò từng tờ giấy.</span></figcaption></figure>
+ </div></div></section>
+<section id="nganh"><div class="wrap"><h2 data-split>Bán cà phê khác bán quần áo. Phần mềm cũng phải khác.</h2><p class="sub" data-r style="--d:.1s">Lúc đăng ký bạn chọn ngành, BizFlow mở đúng bản dành cho ngành đó: khác màn hình bán hàng, khác cách quản lý kho, khác thông tin sản phẩm.</p>
+ <div class="tabs" role="tablist" data-r style="--d:.15s"><button role="tab" aria-selected="true" data-t="fnb">Quán ăn, cà phê</button><button role="tab" aria-selected="false" data-t="retail">Gia dụng, tạp hóa, bán lẻ</button><button role="tab" aria-selected="false" data-t="fashion">Thời trang</button><button role="tab" aria-selected="false" data-t="service">Dịch vụ, làm đẹp</button></div>
+ <div data-r="s" style="--d:.2s">
+  <div class="ind indp" data-p="fnb"><div><h3>Bản dành cho quán ăn, cà phê</h3><ul><li>Bán theo bàn hoặc mang đi</li><li>Mỗi món có định lượng, bán ra là trừ đúng nguyên liệu</li><li>Theo dõi hạn dùng, cảnh báo sắp hết</li><li>Giá vốn từng món tự tính theo giá nhập</li></ul></div><img src="img/pos.webp" width="1280" height="800" alt="Màn hình bán hàng theo bàn cho quán cà phê" loading="lazy" decoding="async"></div>
+  <div class="ind indp" data-p="retail" hidden><div><h3>Bản dành cho gia dụng, tạp hóa, bán lẻ</h3><ul><li>Quét mã vạch, mã QR để bán và kiểm hàng</li><li>Thương hiệu, thời hạn bảo hành từng sản phẩm</li><li>Quy đổi thùng, hộp, cái khi nhập và bán</li><li>In tem QR dán lên từng món hàng</li></ul></div><img src="img/scan.webp" width="1280" height="800" alt="Màn hình quét mã kiểm hàng" loading="lazy" decoding="async"></div>
+  <div class="ind indp" data-p="fashion" hidden><div><h3>Bản dành cho shop thời trang</h3><ul><li>Mỗi mẫu có size và màu riêng</li><li>Tồn kho theo từng biến thể</li><li>Chọn size, màu ngay lúc bán</li><li>Biết mẫu nào, size nào bán chạy</li></ul></div><img src="img/fashion.webp" width="1280" height="800" alt="Chọn size và màu khi bán hàng thời trang" loading="lazy" decoding="async"></div>
+  <div class="ind indp" data-p="service" hidden><div><h3>Bản dành cho dịch vụ, làm đẹp, dạy học</h3><ul><li>Bán theo lượt, buổi, gói, khóa</li><li>Gán nhân viên thực hiện cho từng đơn</li><li>Ghi thời lượng từng dịch vụ</li><li>Chấm công, tính lương cuối tháng</li></ul></div><img src="img/payroll.webp" width="1280" height="800" alt="Bảng chấm công và lương nhân viên" loading="lazy" decoding="async"></div>
+ </div></div></section>
+<section id="mot-ngay" style="padding-top:0"><div class="wrap"><h2 data-split>Một ngày ở tiệm, BizFlow làm những việc này.</h2><p class="sub" data-r style="--d:.1s">Ảnh dưới đây chụp từ chính phần mềm, với tiệm mẫu Doris Coffee.</p>
+ <div class="tour"><div>
+  <article class="step on" data-s="dash"><time>07:00 · Mở cửa</time><h3>Mở lên là biết hôm nay nên lo việc gì</h3><p>Trang tổng quan trả lời thẳng: đang bán được bao nhiêu, có lời không, tiền còn bao nhiêu, kho thiếu gì, khoản nào sắp phải trả.</p><img src="img/dash.webp" width="1280" height="800" alt="Trang tổng quan BizFlow" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="pos"><time>08:30 · Giờ cao điểm</time><h3>Bán theo bàn, bấm một lần là xong sáu việc</h3><p>Chọn bàn, chạm món, thanh toán. BizFlow tự trừ kho theo định lượng, tạo hóa đơn, cộng doanh thu và ghi tiền vào dòng tiền.</p><img src="img/pos.webp" width="1280" height="800" alt="Màn hình bán hàng theo bàn của BizFlow" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="qr"><time>10:00 · Hàng về</time><h3>Mỗi sản phẩm một ảnh, một tem QR để in</h3><p>Tải ảnh sản phẩm lên cho dễ nhận. BizFlow tạo mã QR riêng, xuất tờ tem PDF để in và dán lên hàng.</p><img src="img/qr.webp" width="1280" height="800" alt="Trang sản phẩm có ảnh và tem QR" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="scan"><time>14:00 · Kiểm kho</time><h3>Quét mã là thấy tồn, đếm lệch là sửa ngay</h3><p>Quét tem bằng máy quét hoặc camera điện thoại để xem tồn từng nơi. Nhập số đếm thực tế, BizFlow lập phiếu kiểm và cập nhật kho.</p><img src="img/scan.webp" width="1280" height="800" alt="Màn hình kiểm hàng bằng mã QR" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="invoice"><time>16:00 · Làm thương hiệu</time><h3>Hóa đơn theo ý bạn, hoặc để BizFlow thiết kế</h3><p>Đưa logo, tả ý tưởng bằng một câu. BizFlow chọn bố cục, màu và lời nhắn. Muốn tự chỉnh từng chi tiết cũng được, in A4 hay bill 80mm.</p><img src="img/invoice.webp" width="1280" height="800" alt="Trình thiết kế mẫu hóa đơn" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="cash"><time>21:00 · Chốt ngày</time><h3>Biết trước ngày nào sắp thiếu tiền</h3><p>Dự báo dòng tiền 7 đến 90 ngày từ doanh thu, chi phí định kỳ, công nợ và thuế dự kiến. Sắp xuống dưới mức an toàn là có cảnh báo.</p><img src="img/cash.webp" width="1280" height="800" alt="Dự báo dòng tiền" loading="lazy" decoding="async"></article>
+  <article class="step" data-s="payroll"><time>Cuối tháng</time><h3>Chấm công, tính lương, chốt một lần</h3><p>Nhập ngày công, phụ cấp, thưởng, tạm ứng. BizFlow tính thực nhận, ghi vào chi phí và xuất bảng lương Excel.</p><img src="img/payroll.webp" width="1280" height="800" alt="Bảng chấm công và lương" loading="lazy" decoding="async"></article>
+ </div>
+ <div class="sticky" aria-hidden="true"><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img class="on" data-k="dash" src="img/dash.webp" width="1280" height="800" alt=""><img data-k="pos" src="img/pos.webp" width="1280" height="800" alt="" loading="lazy"><img data-k="qr" src="img/qr.webp" width="1280" height="800" alt="" loading="lazy"><img data-k="scan" src="img/scan.webp" width="1280" height="800" alt="" loading="lazy"><img data-k="invoice" src="img/invoice.webp" width="1280" height="800" alt="" loading="lazy"><img data-k="cash" src="img/cash.webp" width="1280" height="800" alt="" loading="lazy"><img data-k="payroll" src="img/payroll.webp" width="1280" height="800" alt="" loading="lazy"></div></div></div></div></section>
+<section id="tinh-nang" style="padding-top:0"><div class="wrap center"><h2 data-split>Tự động ở những chỗ dễ sai nhất.</h2>
+ <div class="bento" style="text-align:left">
+  <div class="b w4" data-r><h3>Dòng tiền nhìn là hiểu</h3><p>Đường xanh là tiền dự báo, vạch cam là mức an toàn bạn đặt. Chấm đỏ là ngày cần để ý.</p><svg viewBox="0 0 640 190" role="img" aria-label="Minh họa đường dự báo tiền mặt chạm mức an toàn"><line x1="0" x2="640" y1="140" y2="140" stroke="#FDBC1B" stroke-width="1.5" stroke-dasharray="6 6" fill="none"/><path class="draw" pathLength="1" d="M0 90 60 40 90 150 150 118 215 86 270 156 330 112 410 80 500 44 560 28 600 70 640 56" fill="none" stroke="#6CF4C6" stroke-width="3" stroke-linejoin="round"/><circle cx="270" cy="156" r="7" fill="#FF6B5E" stroke="#0B1330" stroke-width="3"/></svg></div>
+  <div class="b w2" data-r style="--d:.1s"><h3>Tem QR từng sản phẩm</h3><p>In ra, dán lên, quét để bán hoặc kiểm hàng.</p><div class="qrbox"><svg viewBox="0 0 21 21" width="104" height="104" shape-rendering="crispEdges" aria-hidden="true" style="margin:0"><path fill="#061033" d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0zM8 0h1v2H8zM10 1h2v1h-2zM9 3h1v3H9zM11 4h2v2h-2zM8 8h2v1H8zM11 8h1v3h-1zM13 9h3v1h-3zM17 8h1v2h-1zM19 9h2v1h-2zM0 8h1v2H0zM2 9h3v1H2zM5 11h2v1H5zM1 11h2v2H1zM8 11h2v2H8zM13 11h1v3h-1zM15 12h2v1h-2zM18 11h2v2h-2zM8 14h1v3H8zM10 15h2v1h-2zM14 15h3v2h-3zM18 15h1v1h-1zM20 14h1v3h-1zM9 18h3v1H9zM13 18h1v3h-1zM15 19h2v2h-2zM18 18h3v1h-3zM10 20h2v1h-2z"/><path fill="#fff" d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/><path fill="#061033" d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2z"/></svg><i></i></div></div>
+  <div class="b w3" data-r><h3>Một lần bấm “Thanh toán”</h3><p>Thu ngân chỉ nhận tiền. Phần còn lại tự chạy theo đúng thứ tự.</p><ol class="six"><li style="--i:0">Tạo đơn và hóa đơn</li><li style="--i:1">Trừ kho theo định lượng</li><li style="--i:2">Cộng doanh thu, lợi nhuận</li><li style="--i:3">Ghi tiền vào dòng tiền</li><li style="--i:4">Cập nhật lịch sử khách</li><li style="--i:5">Tính lại thuế ước tính</li></ol></div>
+  <div class="b w3" data-r style="--d:.1s"><h3>Trợ lý chỉ nói điều có số liệu</h3><p>Mỗi câu trả lời tách rõ số đã ghi nhận, ước tính và gợi ý.</p><div class="chat"><span class="me">Tôi có đủ tiền trả nhà cung cấp không?</span><span><b class="tg r">Số liệu</b>Tiền hiện có 58.400.000đ, phải trả trong 14 ngày 52.200.000đ.</span><span><b class="tg e">Ước tính</b>Số dư thấp nhất 14 ngày tới khoảng 9.900.000đ.</span><span><b class="tg">Gợi ý</b>Đủ trả, nhưng nên lùi khoản nhập hàng chưa gấp.</span></div></div>
+  <div class="b w2" data-r><span class="big g" data-count="4">4</span><h3>bản theo ngành</h3><p>Ăn uống, bán lẻ, thời trang, dịch vụ. Đổi được trong Cài đặt.</p></div>
+  <div class="b w2" data-r style="--d:.08s"><span class="big g" data-count="12">12</span><h3>bước đăng ký</h3><p>Khoảng ba phút, có sản phẩm đầu tiên ngay.</p></div>
+  <div class="b w2" data-r style="--d:.16s"><h3>Thuế: chỉ là ước tính</h3><p>Thuế suất là cấu hình sửa được. BizFlow luôn nhắc bạn đối chiếu quy định hiện hành hoặc hỏi chuyên gia thuế.</p></div>
+ </div></div></section>
+<section id="hoi-dap" style="padding-top:0"><div class="wrap"><h2 class="center" data-r style="margin-inline:auto;text-align:center">Câu hỏi thường gặp</h2><div style="margin-top:28px">
+ <details open data-r><summary>BizFlow là gì?</summary><p>BizFlow là phần mềm quản lý kinh doanh cho hộ kinh doanh và doanh nghiệp nhỏ tại Việt Nam, gồm bán hàng, kho, tem QR, kiểm hàng, hóa đơn, khách hàng, nhà cung cấp, chi phí, lương, dòng tiền, thuế ước tính và báo cáo.</p></details>
+ <details data-r><summary>Quán cà phê và shop quần áo dùng chung một phần mềm được không?</summary><p>Được, nhưng mỗi bên thấy một bản khác nhau. Quán ăn uống bán theo bàn và trừ nguyên liệu theo định lượng. Shop thời trang quản lý size, màu. Hàng gia dụng có bảo hành, thương hiệu. Dịch vụ thì gán nhân viên thực hiện.</p></details>
+ <details data-r><summary>Tôi không biết kế toán thì có dùng được không?</summary><p>Được. Màn hình chính dùng lời thường ngày như “Tiền hiện có”, “Đang lời”, “Sắp thiếu tiền”. Báo cáo chi tiết vẫn có khi kế toán của bạn cần.</p></details>
+ <details data-r><summary>Số thuế BizFlow tính có dùng để nộp được không?</summary><p>Không nên dùng trực tiếp. Đây là số ước tính theo cấu hình thuế suất bạn chọn, cần đối chiếu với quy định hiện hành hoặc hỏi chuyên gia thuế trước khi kê khai.</p></details>
+ <details data-r><summary>BizFlow đã kết nối ngân hàng, hóa đơn điện tử, Shopee, TikTok Shop chưa?</summary><p>Chưa. Trong bản hiện tại mọi tích hợp đều ghi rõ “Chưa kết nối”. Hóa đơn BizFlow tạo là hóa đơn bán hàng nội bộ, chưa phải hóa đơn điện tử có mã của cơ quan thuế.</p></details>
+</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="final" data-r="s"><div class="endbot"><img src="img/bot_wave.webp" width="450" height="600" alt="Robot trợ lý BizFlow vẫy tay chào" loading="lazy"><canvas id="botend" aria-hidden="true"></canvas></div><h2>Thử bán một đơn ở tiệm mẫu. Mất chưa tới một phút.</h2><p class="sub" style="margin-inline:auto">Tiệm mẫu Doris Coffee có sẵn sản phẩm, khách hàng và đơn hàng để bạn bấm thử mọi thứ.</p><div class="cta"><a class="btn pri" href="app/">Mở BizFlow</a></div></div></div></section>
+</main>
+<footer><div class="wrap">BizFlow · Quản lý kinh doanh thông minh: tự động, rõ ràng, dễ hiểu. Số liệu trên trang lấy từ dữ liệu mẫu.</div></footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","name":"BizFlow","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"vi","description":"Phần mềm quản lý bán hàng, kho, tem QR, hóa đơn, lương, dòng tiền và thuế ước tính cho hộ kinh doanh và doanh nghiệp nhỏ tại Việt Nam.","featureList":["Bán hàng theo ngành","Quản lý kho và tem QR","Quét mã kiểm hàng","Thiết kế hóa đơn","Chấm công và lương","Dự báo dòng tiền","Thuế ước tính"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"BizFlow là gì?","acceptedAnswer":{"@type":"Answer","text":"BizFlow là phần mềm quản lý kinh doanh cho hộ kinh doanh và doanh nghiệp nhỏ tại Việt Nam, gồm bán hàng, kho, tem QR, kiểm hàng, hóa đơn, lương, dòng tiền, thuế ước tính và báo cáo."}},{"@type":"Question","name":"Quán cà phê và shop quần áo dùng chung một phần mềm được không?","acceptedAnswer":{"@type":"Answer","text":"Được. Mỗi ngành thấy một bản khác nhau: ăn uống bán theo bàn và trừ nguyên liệu theo định lượng, thời trang quản lý size và màu, gia dụng có bảo hành, dịch vụ gán nhân viên thực hiện."}},{"@type":"Question","name":"Số thuế BizFlow tính có dùng để nộp được không?","acceptedAnswer":{"@type":"Answer","text":"Đây là số ước tính theo cấu hình, cần đối chiếu với quy định hiện hành hoặc chuyên gia thuế trước khi kê khai."}}]}]}</script>
+<script>window.L_EN={};</script>
+<script>
+// ===== Trợ lý 3D của BizFlow: đi lại bằng hoạt ảnh xương có sẵn, vẫy tay, chỉ tay thuyết trình, gật gù khi nói =====
+function BizBot(canvas,opt){opt=opt||{};
+  const api={ready:false,wave:0,point:0,pointR:0,talk:0,x:0,_w:0,_p:0,_r:0,_k:0,_ww:0,_yaw:opt.yaw||0,target:null,
+    waveFor(ms){api.wave=1;clearTimeout(api._t);api._t=setTimeout(()=>api.wave=0,ms||2600)},
+    walkTo(x){return new Promise(ok=>{api.target=x;api._arrive=ok})},half(){return api._half||1},dispose(){api.dead=true}};
+  const load=BizBot.load;
+  (async()=>{try{if(!window.THREE)await load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js');if(!THREE.GLTFLoader){try{await load((opt.base||'')+'gltfloader.js')}catch(e){}if(!THREE.GLTFLoader)await load('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js')}
+    const R=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,premultipliedAlpha:true});R.setClearColor(0x000000,0);R.setPixelRatio(Math.min(2,devicePixelRatio||1));if(THREE.sRGBEncoding)R.outputEncoding=THREE.sRGBEncoding;
+    const S=new THREE.Scene(),fov=30,fill=opt.fill||.74,VH=2/fill,dist=(VH/2)/Math.tan(fov*Math.PI/360),cam=new THREE.PerspectiveCamera(fov,1,.1,100);cam.position.set(0,VH/2-1.14,dist);cam.lookAt(0,VH/2-1.14,0);
+    S.add(new THREE.HemisphereLight(0xffffff,0x3a4a7a,1.05));const d=new THREE.DirectionalLight(0xffffff,1.1);d.position.set(2.5,4,5);S.add(d);const rim=new THREE.PointLight(0x22c3fc,1.2,30);rim.position.set(-4,2,-3);S.add(rim);
+    const src=opt.src||'circuit.txt';let g,b64=window.CIRCUIT_GLB;
+    if(!b64){try{const r=await fetch(src);if(r.ok){const t=(await r.text()).trim().split('\n');if(t[0].length>1000){window.CIRCUIT_GLB=t[0];window.CIRCUIT_TEX=t[1]}}}catch(e){}if(!window.CIRCUIT_GLB)await load(src.replace(/\.txt$/,'.js'));b64=window.CIRCUIT_GLB}
+    const bin=atob(b64),u8=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u8[i]=bin.charCodeAt(i);g=await new Promise((ok,no)=>new THREE.GLTFLoader().parse(u8.buffer,'',ok,no));
+    // ảnh bề mặt nạp bằng thẻ img từ data URI: không cần fetch hay blob nên không bị trang chặn
+    await new Promise(ok=>{const im=new Image();im.onload=()=>{const tx=new THREE.Texture(im);tx.flipY=false;if(THREE.sRGBEncoding)tx.encoding=THREE.sRGBEncoding;tx.needsUpdate=true;g.scene.traverse(o=>{if(o.isMesh){o.material.map=tx;o.material.emissiveMap=tx;o.material.needsUpdate=true}});ok()};im.onerror=ok;im.src=window.CIRCUIT_TEX});
+    const m=g.scene;m.updateMatrixWorld(true);let lo=1e9,hi=-1e9;const v=new THREE.Vector3(),B={},Q={};
+    m.traverse(o=>{if(o.isBone){o.getWorldPosition(v);lo=Math.min(lo,v.y);hi=Math.max(hi,v.y);B[o.name]=o;Q[o.name]=o.quaternion.clone()}if(o.isMesh)o.frustumCulled=false});
+    const k=2/(hi-lo),baseY=-lo*k-1;m.scale.setScalar(k);m.position.set(0,baseY,0);const G=new THREE.Group();G.add(m);S.add(G);
+    const sh=new THREE.Mesh(new THREE.CircleGeometry(.62,40),new THREE.MeshBasicMaterial({color:0x020617,transparent:true,opacity:.34,depthWrite:false}));sh.rotation.x=-Math.PI/2;sh.position.y=-1.02;sh.scale.set(1,.55,1);G.add(sh);
+    // hoạt ảnh đi bộ: tự lấy mẫu từng xương để trộn với tư thế nghỉ và động tác tay
+    const clip=(g.animations||[]).find(a=>/walk/i.test(a.name))||(g.animations||[])[0],TR=[];
+    if(clip)clip.tracks.forEach(tr=>{const mm=tr.name.match(/^(.*)\.(quaternion|position)$/);if(!mm||!B[mm[1]])return;if(mm[2]==='position'&&mm[1]!=='Hips')return;TR.push({n:mm[1],b:B[mm[1]],q:mm[2]==='quaternion',it:tr.createInterpolant(),rp:B[mm[1]].position.clone()})});
+    const AX={x:new THREE.Vector3(1,0,0),y:new THREE.Vector3(0,1,0),z:new THREE.Vector3(0,0,1)},tq=new THREE.Quaternion(),rot=(n,ax,a)=>{if(B[n]&&a)B[n].quaternion.multiply(tq.setFromAxisAngle(AX[ax],a))};
+    function size(){const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();api._half=Math.tan(fov*Math.PI/360)*dist*cam.aspect}
+    new ResizeObserver(size).observe(canvas);size();let vis=true,mx=0,my=0;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(canvas);
+    addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();mx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width*(api.x/(2*api._half)+.5)))/600));my=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/600))},{passive:true});
+    const still=matchMedia('(prefers-reduced-motion: reduce)').matches;let last=0,phase=0;if(opt.startX!=null)api.x=opt.startX*api._half;api.ready=true;canvas.classList.add('on');if(opt.onready)opt.onready(api);
+    (function frame(ts){if(api.dead)return;requestAnimationFrame(frame);if(!vis||document.hidden||ts-last<(opt.fps?1000/opt.fps:0))return;const dt=Math.min(.05,(ts-last)/1000||.016);last=ts;const t=ts/1000,e=1-Math.pow(.002,dt),mo=still?0:1;
+      // di chuyển
+      let walking=0,dir=0;if(api.target!=null){const dx=api.target-api.x;if(Math.abs(dx)<.03||still){api.x=api.target;api.target=null;const f=api._arrive;api._arrive=null;if(f)f()}else{dir=Math.sign(dx);walking=1;api.x+=dir*Math.min(Math.abs(dx),(opt.speed||.92)*dt)}}
+      api._ww+=(walking-api._ww)*Math.min(1,dt*7);const ww=api._ww;api._w+=(api.wave-api._w)*e;api._p+=(api.point-api._p)*e;api._r+=(api.pointR-api._r)*e;api._k+=(api.talk-api._k)*e;
+      const w=api._w*(1-ww),p=api._p*(1-ww),pr=api._r*(1-ww),kk=api._k;
+      for(const n in B)B[n].quaternion.copy(Q[n]);
+      if(clip&&ww>.001){phase+=dt*(opt.stride||1.05);const tt=phase%clip.duration;for(const tr of TR){const a=tr.it.evaluate(tt);if(tr.q){tq.set(a[0],a[1],a[2],a[3]);tr.b.quaternion.slerp(tq,ww)}else tr.b.position.set(tr.rp.x,tr.rp.y+(a[1]-tr.rp.y)*ww,tr.rp.z)}}else for(const tr of TR)if(!tr.q)tr.b.position.copy(tr.rp);
+      const idle=(1-ww)*mo;m.position.y=baseY+Math.sin(t*1.7)*.03*idle;rot('Spine01','z',Math.sin(t*1.1)*.03*idle);rot('Spine','x',Math.sin(t*1.7)*.02*idle);
+      rot('Head','y',(mx*.45+p*.3-pr*.3)*(1-ww*.6));rot('Head','x',my*.25*(1-ww)+Math.sin(t*9)*.05*kk*mo);rot('Head','z',Math.sin(t*1.3)*.04*idle+w*.12);
+      rot('RightUpperArm','z',1.5*w+1.15*pr+Math.sin(t*1.7)*.04*idle);rot('RightLowerArm','z',(1.25+Math.sin(t*9)*.38*mo)*w+(.2+Math.sin(t*2.3)*.12*mo)*pr);rot('RightHand','z',.25*w);
+      rot('LeftUpperArm','z',-1.2*p-Math.sin(t*1.7+1)*.04*idle-kk*.35*(1-p)*(1-ww));rot('LeftLowerArm','z',(-.2+Math.sin(t*2.3)*.12*mo)*p-kk*.5*(1-p)*(1-ww)*(1+.3*Math.sin(t*6)));
+      const yawT=walking?dir*1.32:(opt.yaw||0)+mx*.25+p*(opt.pointYaw||0)-pr*(opt.pointYaw||0);api._yaw+=(yawT-api._yaw)*Math.min(1,dt*6);G.rotation.y=api._yaw;G.position.x=api.x;
+      if(opt.onmove)opt.onmove(api.x/(2*api._half)+.5,walking);R.render(S,cam)})(0)}catch(e){if(window.console)console.warn('BizBot',e&&e.message||e);if(opt.onfail)opt.onfail(e)}})();
+  return api}
+BizBot.libs={};BizBot.load=u=>BizBot.libs[u]||(BizBot.libs[u]=new Promise((ok,no)=>{const s=document.createElement('script');s.src=u;s.onload=ok;s.onerror=no;document.head.appendChild(s)}));
+
+(function(){const D=document,root=D.documentElement,still=matchMedia('(prefers-reduced-motion: reduce)').matches;root.classList.add('js');
+ // ---- song ngữ ----
+ const L=window.L_EN||{},isStatic=root.hasAttribute('data-static');let lang=root.lang==='en'?'en':'vi';if(!isStatic){try{if(localStorage.getItem('bf_lang')==='en')lang='en'}catch(e){}}
+ const AT=['alt','aria-label'];
+ function trEl(n,toEn){if(n.nodeType===3){if(n.__o==null)n.__o=n.nodeValue;const t=n.__o.trim();n.nodeValue=toEn&&L[t]?n.__o.replace(t,L[t]):n.__o}else if(n.nodeType===1&&!/^(SCRIPT|STYLE)$/.test(n.nodeName)&&!n.hasAttribute('data-noi18n')){AT.forEach(a=>{if(n.hasAttribute(a)){n.__a=n.__a||{};if(n.__a[a]==null)n.__a[a]=n.getAttribute(a);const o=n.__a[a];n.setAttribute(a,toEn&&L[o]?L[o]:o)}});if(n.hasAttribute('data-split')||n.hasAttribute('data-fill')){if(n.__src==null)n.__src=n.innerHTML;n.innerHTML=n.__src;n.childNodes.forEach(c=>trEl2(c,toEn));split(n);return}n.childNodes.forEach(c=>trEl(c,toEn))}}
+ function trEl2(n,toEn){if(n.nodeType===3){const t=n.nodeValue.trim();if(toEn&&L[t])n.nodeValue=n.nodeValue.replace(t,L[t])}else if(n.nodeType===1)n.childNodes.forEach(c=>trEl2(c,toEn))}
+ function split(el){let i=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=D.createDocumentFragment();c.nodeValue.split(/(\s+)/).forEach(p=>{if(!p)return;if(/^\s+$/.test(p)){f.appendChild(D.createTextNode(' '));return}const w=D.createElement('span');w.className='w';w.style.setProperty('--i',i++);const s=D.createElement('span');s.textContent=p;if(n.classList&&n.classList.contains('g'))s.className='gi';w.appendChild(s);f.appendChild(w)});n.replaceChild(f,c)}else if(c.nodeType===1)walk(c)})};walk(el);el.querySelectorAll('.g').forEach(g=>g.classList.remove('g'))}
+ function applyLang(){const en=lang==='en'&&!isStatic;trEl(D.body,en);const b=D.getElementById('lang');b.textContent=lang==='en'?'VI':'EN';b.setAttribute('aria-label',lang==='en'?'Chuyển sang tiếng Việt':'Switch to English');if(!isStatic)root.lang=lang;fill()}
+ D.getElementById('lang').addEventListener('click',e=>{if(isStatic)return;e.preventDefault();lang=lang==='en'?'vi':'en';try{localStorage.setItem('bf_lang',lang)}catch(x){}applyLang();D.querySelectorAll('[data-split]').forEach(x=>x.classList.add('in'))});
+ // ---- chữ sáng dần theo cuộn ----
+ const fillEl=D.querySelector('[data-fill]');function fill(){if(!fillEl||still)return;const ws=fillEl.querySelectorAll('.w'),r=fillEl.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.85-r.top)/(innerHeight*.6+r.height)));ws.forEach((w,i)=>w.classList.toggle('lit',i/ws.length<p))}
+ applyLang();
+ // ---- hiện dần khi cuộn tới ----
+ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px',threshold:.12});
+ D.querySelectorAll('[data-r],[data-split]').forEach(e=>io.observe(e));
+ // ---- đếm số ----
+ const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const n=+e.target.dataset.count;if(still)return;let t0=null;const st=t=>{t0=t0||t;const p=Math.min(1,(t-t0)/900);e.target.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(st)};requestAnimationFrame(st)}),{threshold:.6});D.querySelectorAll('[data-count]').forEach(e=>co.observe(e));
+ // ---- cuộn: thanh tiến độ, khung hero, ảnh nổi, băng ảnh ngang ----
+ const hf=D.getElementById('heroframe'),prog=D.getElementById('prog'),pars=D.querySelectorAll('[data-par]'),hs=D.querySelector('.hs'),track=D.getElementById('hstrack'),wide=matchMedia('(min-width:901px)'),side=matchMedia('(min-width:1001px)');let tick=false;
+ function onScroll(){if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const y=scrollY,max=root.scrollHeight-innerHeight;prog.style.transform='scaleX('+(max>0?y/max:0)+')';fill();if(still)return;
+   const q=Math.max(0,Math.min(1,y/520));if(side.matches)hf.style.transform='rotateY('+(-15*(1-q)).toFixed(2)+'deg) rotateX('+(5*(1-q)).toFixed(2)+'deg)';else{const r=hf.getBoundingClientRect(),p=Math.max(0,Math.min(1,(r.top-innerHeight*.18)/(innerHeight*.62)));hf.style.transform='rotateX('+(p*22).toFixed(2)+'deg) scale('+(1-p*.08).toFixed(3)+')'}
+   pars.forEach(e=>{e.style.translate='0 '+(y*+e.dataset.par).toFixed(1)+'px'});
+   if(wide.matches){const h=hs.getBoundingClientRect(),q=Math.max(0,Math.min(1,-h.top/(h.height-innerHeight)));track.style.transform='translateX('+(-q*(track.scrollWidth-innerWidth)).toFixed(1)+'px)'}else track.style.transform=''})}
+ addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+ // ---- chuyến đi một ngày ----
+ const imgs=D.querySelectorAll('.sticky img'),steps=D.querySelectorAll('.step');
+ const so=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;steps.forEach(s=>s.classList.toggle('on',s===e.target));imgs.forEach(i=>i.classList.toggle('on',i.dataset.k===e.target.dataset.s))}),{rootMargin:'-45% 0px -45% 0px'});steps.forEach(s=>so.observe(s));
+ // ---- theo ngành ----
+ const tabs=D.querySelectorAll('.tabs button'),panels=D.querySelectorAll('.indp');tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.setAttribute('aria-selected',x===b));panels.forEach(p=>p.hidden=p.dataset.p!==b.dataset.t)}));
+ // ---- đốm sáng theo chuột trên thẻ ----
+ D.querySelectorAll('.b').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}));
+ // ---- 3D: tải sau khi trang đã hiện ----
+ function boot3d(){const cv=D.getElementById('c3d');if(still||!window.THREE)return;let R;try{R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(e){return}
+  R.setPixelRatio(Math.min(1.75,devicePixelRatio||1));const S=new THREE.Scene(),cam=new THREE.PerspectiveCamera(38,1,.1,100);cam.position.z=14;
+  S.add(new THREE.AmbientLight(0x8fa8ff,.55));const l1=new THREE.PointLight(0x22c3fc,1.6,60);l1.position.set(-8,6,10);S.add(l1);const l2=new THREE.PointLight(0xfdbc1b,1.1,60);l2.position.set(9,-4,8);S.add(l2);const l3=new THREE.DirectionalLight(0xffffff,.7);l3.position.set(2,8,6);S.add(l3);
+  const mat=(c,e)=>new THREE.MeshPhysicalMaterial({color:c,roughness:.22,metalness:.1,clearcoat:1,clearcoatRoughness:.15,emissive:e||0,emissiveIntensity:.25}),G=new THREE.Group();S.add(G);const objs=[];
+  const add=(geo,m,x,y,z,s)=>{const o=new THREE.Mesh(geo,m);o.position.set(x,y,z);o.scale.setScalar(s);o.userData={y,ph:Math.random()*6,sp:.3+Math.random()*.5};G.add(o);objs.push(o)};
+  add(new THREE.SphereGeometry(1,48,48),mat(0xfda51b,0xff7a00),-8.9,4.7,0,.95);add(new THREE.TorusGeometry(1,.42,32,80),mat(0x1f6bff,0x0a3bd0),8.1,3.9,-1,1.1);add(new THREE.TorusKnotGeometry(.8,.3,140,24),mat(0x3fe0c0,0x009c8f),-8.3,-4.0,-2,.6);add(new THREE.SphereGeometry(1,32,32),mat(0x6cf4c6),-2.6,4.5,-4,.34);add(new THREE.SphereGeometry(1,32,32),mat(0x2b7bff),1.2,4.4,-5,.3);add(new THREE.IcosahedronGeometry(1,0),mat(0xfdbc1b,0xff9a00),-.8,-4.4,-3,.38);
+  const hero=cv.parentElement;function size(){const w=hero.clientWidth,h=hero.clientHeight;R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();G.scale.setScalar(Math.min(1,w/1100+.25));G.position.y=h>900?(h-900)/260:0}
+  new ResizeObserver(size).observe(hero);size();let mx=0,my=0,vis=true;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5},{passive:true});new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(hero);
+  cv.classList.add('on');(function frame(t){requestAnimationFrame(frame);if(!vis)return;t/=1000;objs.forEach(o=>{o.position.y=o.userData.y+Math.sin(t*o.userData.sp+o.userData.ph)*.5+scrollY*.006;o.rotation.x=t*.2*o.userData.sp+o.userData.ph;o.rotation.y=t*.3*o.userData.sp});G.rotation.y+=(mx*.35-G.rotation.y)*.05;G.rotation.x+=(my*.2-G.rotation.x)*.05;R.render(S,cam)})(0)}
+ const SAY=['Chào bạn! Mình là trợ lý của BizFlow.','Đây là trang tổng quan. Mở lên là biết hôm nay bán được bao nhiêu.','Bán hàng: chạm món, chọn bàn, thu tiền là xong.','Mỗi sản phẩm có tem QR riêng để in và dán.','Quét mã để kiểm hàng, biết ngay còn bao nhiêu.','Hóa đơn mang logo và màu của tiệm bạn.','Dòng tiền: tiền vào, tiền ra, còn đủ chi mấy tháng.','Chấm công và tính lương cho cả tiệm.','Cần gì cứ hỏi mình, mình trả lời bằng số liệu của tiệm.','Cuộn xuống, mình chỉ cho bạn từng phần.'],SHOT=["dash", "pos", "qr", "scan", "invoice", "cash", "payroll", "ai"];
+ const BASE=isStatic&&root.lang==='en'?'../':'';
+ function bootEnd(){const c=D.getElementById('botend');if(!c)return;new IntersectionObserver((es,o)=>{if(!es[0].isIntersecting)return;o.disconnect();BizBot(c,{src:BASE+'circuit.txt',base:BASE,fill:.8,yaw:0,fps:40,onready:b=>{c.parentElement.classList.add('live');b.waveFor(3200);setInterval(()=>{if(!D.hidden)b.waveFor(2600)},6500)}})},{rootMargin:'300px'}).observe(c)}
+ const CH=['+58.000đ · 2 Cà phê sữa · Bàn 3','Sữa tươi sắp hết, còn 18 hộp','Đã gửi bếp: 2 Trà đào','Đã tạo hóa đơn HD-011233','Kho tự trừ 0,16 hộp sữa','Tiền hiện có 58.400.000đ'];
+ function bootChips(){const box=D.getElementById('lchips');if(!box||still)return;let i=0;const slots=[...box.children];setInterval(()=>{if(D.hidden)return;const el=slots[i%slots.length],t=CH[i%CH.length];el.classList.remove('on');setTimeout(()=>{el.lastChild.textContent=lang==='en'&&L[t]?L[t]:t;el.classList.add('on')},350);i++},1900)}
+ function bootBot(){bootEnd();bootChips();const say=D.getElementById('say'),st=D.querySelector('.botstage'),T=t=>lang==='en'&&L[t]?L[t]:t,tell=k=>{say.classList.remove('on');setTimeout(()=>{say.textContent=T(SAY[k]);say.classList.add('on')},300)},sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  BizBot(D.getElementById('botc'),{src:BASE+'circuit.txt',base:BASE,yaw:.25,pointYaw:.3,fill:.8,startX:-.7,onmove:nx=>{st.style.setProperty('--bx',nx.toFixed(3))},onready:async b=>{st.classList.add('live');
+   const im=D.querySelector('#heroframe img'),fr=im.parentNode,nx=new Image();nx.className='nx';nx.alt='';fr.appendChild(nx);SHOT.forEach(k=>{new Image().src=BASE+'img/'+k+'.webp'});
+   const show=k=>{const u=BASE+'img/'+k+'.webp';if(im.getAttribute('src')===u)return;nx.onload=()=>{nx.classList.add('on');setTimeout(()=>{im.src=u;setTimeout(()=>nx.classList.remove('on'),120)},520)};nx.src=u};
+   for(;;){show(SHOT[0]);tell(0);b.waveFor(2600);await sleep(3000);
+    for(let i=0;i<SHOT.length;i++){show(SHOT[i]);tell(i+1);b.point=1;b.talk=1;await sleep(3700);b.point=0;b.talk=0;await sleep(350)}
+    tell(SHOT.length+1);b.waveFor(2400);await sleep(3600)}}})}
+ function load3d(){BizBot.load('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js').then(()=>{boot3d();bootBot()})}
+ if(D.readyState==='complete')setTimeout(load3d,300);else addEventListener('load',()=>(window.requestIdleCallback||setTimeout)(load3d,{timeout:1500}))
+})();
+</script></body></html>
