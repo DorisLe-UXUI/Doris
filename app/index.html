@@ -1799,7 +1799,7 @@ Object.assign(A,{
 });
 // ---- hợp đồng định kỳ: thuê bao, bảo hiểm, thẻ hội viên ----
 const ctState=c=>c.status!=='active'?['Đã hủy','']:c.next<T0?['Quá hạn','bad']:c.next-T0<=14*DAY?['Sắp đến hạn','warn']:['Đang hiệu lực','ok'];
-PAGES.contracts=w=>{const M=mode(w),cs=w.contracts||[],act=cs.filter(c=>c.status==='active'),mrr=act.reduce((a,c)=>a+c.fee/({'Tháng':1,'Quý':3,'Năm':12}[c.cycle]||12),0),soon=act.filter(c=>c.next>=T0&&c.next-T0<=30*DAY),late=act.filter(c=>c.next<T0),f=S.f.ct||'';
+PAGES.contracts=w=>{const M=mode(w),cs=w.contracts||[],act=cs.filter(c=>c.status==='active'),mrr=act.reduce((a,c)=>a+c.fee/(c.months||{'Tháng':1,'Quý':3,'Năm':12}[c.cycle]||12),0),soon=act.filter(c=>c.next>=T0&&c.next-T0<=30*DAY),late=act.filter(c=>c.next<T0),f=S.f.ct||'';
   const rows=cs.filter(c=>!f||ctState(c)[0]===f).sort((a,b)=>a.next-b.next),pg=paged('ct',rows,12),nm=M.contractName||'Hợp đồng định kỳ';
   return head(nm,'Mỗi dòng là một khách trả phí theo kỳ. BizFlow nhắc trước khi đến hạn.',`<button class="btn pri" data-a="modal" data-v="contract">${ic('plus')}Thêm ${nm.toLowerCase()}</button>`)+
   `<div class="grid g4">${kpi('Đang hiệu lực',act.length)}${kpi('Doanh thu định kỳ mỗi tháng',vnd(mrr),`<span>Quy năm ${vnd(mrr*12)}</span>`)}${kpi('Đến hạn trong 30 ngày',soon.length,`<span>${vnd(soon.reduce((a,c)=>a+c.fee,0))}</span>`)}${kpi('Quá hạn chưa thu',late.length,late.length?pill('Cần liên hệ khách','bad'):pill('Không có','ok'))}</div>
